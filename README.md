@@ -1,4 +1,4 @@
-# Gatherins -- AI-Powered Gathering Planning Tool
+# Gatherins - AI-Powered Gathering Planning Tool
 
 An internal tool for Airbnb employees that makes planning team gatherings (offsites, working sessions, team-building events) easy and intentional. It replaces the current fragmented process -- spreadsheets, Slack, email, tribal knowledge -- with a single guided platform.
 
