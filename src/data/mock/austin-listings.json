@@ -1,0 +1,122 @@
+[
+  {
+    "id": "austin-1",
+    "title": "Modern Downtown Loft — Walk to Everything",
+    "price": 189,
+    "rating": 4.92,
+    "reviews": 347,
+    "guests": 4,
+    "bedrooms": 2,
+    "amenities": ["WiFi", "Kitchen", "Workspace", "Free Parking", "Pool"],
+    "image": "https://picsum.photos/seed/austin-loft-downtown/400/300",
+    "distance": "0.5 mi from venue"
+  },
+  {
+    "id": "austin-2",
+    "title": "Charming East Austin Bungalow with Yard",
+    "price": 155,
+    "rating": 4.88,
+    "reviews": 213,
+    "guests": 6,
+    "bedrooms": 3,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "Backyard", "BBQ Grill"],
+    "image": "https://picsum.photos/seed/austin-bungalow-east/400/300",
+    "distance": "1.2 mi from venue"
+  },
+  {
+    "id": "austin-3",
+    "title": "Luxury Lakefront Retreat — Team-Sized",
+    "price": 450,
+    "rating": 4.95,
+    "reviews": 89,
+    "guests": 16,
+    "bedrooms": 7,
+    "amenities": ["WiFi", "Kitchen", "Lake Access", "Hot Tub", "Fire Pit", "Game Room"],
+    "image": "https://picsum.photos/seed/austin-lakefront-retreat/400/300",
+    "distance": "4.0 mi from venue"
+  },
+  {
+    "id": "austin-4",
+    "title": "South Congress Boutique Suite",
+    "price": 210,
+    "rating": 4.90,
+    "reviews": 178,
+    "guests": 2,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "Workspace", "Coffee Bar", "Rooftop Access"],
+    "image": "https://picsum.photos/seed/austin-soco-suite/400/300",
+    "distance": "0.8 mi from venue"
+  },
+  {
+    "id": "austin-5",
+    "title": "Rainey Street Penthouse with Skyline Views",
+    "price": 385,
+    "rating": 4.97,
+    "reviews": 64,
+    "guests": 8,
+    "bedrooms": 4,
+    "amenities": ["WiFi", "Kitchen", "Rooftop Terrace", "AC", "Gym", "EV Charger"],
+    "image": "https://picsum.photos/seed/austin-rainey-penthouse/400/300",
+    "distance": "0.3 mi from venue"
+  },
+  {
+    "id": "austin-6",
+    "title": "Cozy Mueller Townhouse — Family Friendly",
+    "price": 135,
+    "rating": 4.78,
+    "reviews": 156,
+    "guests": 5,
+    "bedrooms": 3,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "Parking", "Patio"],
+    "image": "https://picsum.photos/seed/austin-mueller-townhouse/400/300",
+    "distance": "2.5 mi from venue"
+  },
+  {
+    "id": "austin-7",
+    "title": "Zilker Park Mid-Century Gem",
+    "price": 275,
+    "rating": 4.93,
+    "reviews": 302,
+    "guests": 6,
+    "bedrooms": 3,
+    "amenities": ["WiFi", "Kitchen", "Pool", "Hot Tub", "Fireplace", "Record Player"],
+    "image": "https://picsum.photos/seed/austin-zilker-midcentury/400/300",
+    "distance": "2.0 mi from venue"
+  },
+  {
+    "id": "austin-8",
+    "title": "Domain Northside Corporate Apartment",
+    "price": 95,
+    "rating": 4.62,
+    "reviews": 88,
+    "guests": 2,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "Workspace", "AC", "Gym", "Parking"],
+    "image": "https://picsum.photos/seed/austin-domain-apt/400/300",
+    "distance": "3.8 mi from venue"
+  },
+  {
+    "id": "austin-9",
+    "title": "Hill Country Estate — Full Team Retreat",
+    "price": 550,
+    "rating": 4.99,
+    "reviews": 42,
+    "guests": 20,
+    "bedrooms": 8,
+    "amenities": ["WiFi", "Kitchen", "Pool", "Hot Tub", "Fire Pit", "Game Room", "Parking", "BBQ Grill"],
+    "image": "https://picsum.photos/seed/austin-hillcountry-estate/400/300",
+    "distance": "3.5 mi from venue"
+  },
+  {
+    "id": "austin-10",
+    "title": "2nd Street District Studio — Walkable",
+    "price": 115,
+    "rating": 4.81,
+    "reviews": 234,
+    "guests": 2,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "AC", "Workspace", "Coffee Maker", "Smart TV"],
+    "image": "https://picsum.photos/seed/austin-2ndstreet-studio/400/300",
+    "distance": "0.2 mi from venue"
+  }
+]

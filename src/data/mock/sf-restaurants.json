@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Zuni Cafe",
+    "cuisine": "California-Mediterranean",
+    "rating": 4.6,
+    "price": "$$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "1.2 mi from venue",
+    "reason": "San Francisco institution with a famous roast chicken for two that encourages pair sharing at the table."
+  },
+  {
+    "name": "Tartine Manufactory",
+    "cuisine": "Bakery/Cafe",
+    "rating": 4.5,
+    "price": "$$",
+    "dietary": ["vegetarian options", "vegan options"],
+    "distance": "0.8 mi from venue",
+    "reason": "Bright, airy space in the Mission perfect for casual team breakfasts and morning planning."
+  },
+  {
+    "name": "State Bird Provisions",
+    "cuisine": "New American Dim Sum",
+    "rating": 4.7,
+    "price": "$$$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "2.1 mi from venue",
+    "reason": "Michelin-starred dim sum cart format where dishes come to you, creating a lively shared dining experience."
+  },
+  {
+    "name": "Nopalito",
+    "cuisine": "Mexican",
+    "rating": 4.5,
+    "price": "$$",
+    "dietary": ["vegetarian options", "vegan options", "gluten-free options"],
+    "distance": "1.5 mi from venue",
+    "reason": "Organic Mexican cuisine with generous portions and a warm atmosphere ideal for team lunches."
+  },
+  {
+    "name": "Burma Superstar",
+    "cuisine": "Burmese",
+    "rating": 4.4,
+    "price": "$$",
+    "dietary": ["vegetarian options", "vegan options"],
+    "distance": "2.8 mi from venue",
+    "reason": "Unique Burmese cuisine that introduces teams to unfamiliar flavors, sparking conversation and curiosity."
+  },
+  {
+    "name": "Hog Island Oyster Co.",
+    "cuisine": "Seafood",
+    "rating": 4.6,
+    "price": "$$$",
+    "dietary": ["gluten-free options"],
+    "distance": "0.5 mi from venue",
+    "reason": "Ferry Building waterfront location with communal oyster shucking that doubles as a team activity."
+  },
+  {
+    "name": "Lazy Bear",
+    "cuisine": "New American",
+    "rating": 4.8,
+    "price": "$$$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "1.0 mi from venue",
+    "reason": "Communal dinner party format with a standing cocktail hour that blends dining with genuine connection."
+  },
+  {
+    "name": "La Taqueria",
+    "cuisine": "Mexican",
+    "rating": 4.5,
+    "price": "$",
+    "dietary": ["gluten-free options"],
+    "distance": "0.9 mi from venue",
+    "reason": "Legendary Mission taqueria with fast service and long communal benches, great for casual team outings."
+  },
+  {
+    "name": "Che Fico",
+    "cuisine": "Italian",
+    "rating": 4.6,
+    "price": "$$$",
+    "dietary": ["vegetarian options"],
+    "distance": "1.7 mi from venue",
+    "reason": "Wood-fired Italian with a bustling atmosphere and large-format dishes designed for group sharing."
+  },
+  {
+    "name": "Souvla",
+    "cuisine": "Greek",
+    "rating": 4.4,
+    "price": "$$",
+    "dietary": ["vegetarian options", "gluten-free options", "vegan options"],
+    "distance": "0.6 mi from venue",
+    "reason": "Fast-casual Greek with a clean, modern space and quick service perfect for working lunches."
+  },
+  {
+    "name": "Mister Jiu's",
+    "cuisine": "Chinese-American",
+    "rating": 4.7,
+    "price": "$$$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "1.3 mi from venue",
+    "reason": "Michelin-starred Chinatown restaurant with a private banquet room available for team celebrations."
+  },
+  {
+    "name": "Anchor Oyster Bar",
+    "cuisine": "Seafood",
+    "rating": 4.5,
+    "price": "$$$",
+    "dietary": ["gluten-free options"],
+    "distance": "1.1 mi from venue",
+    "reason": "Intimate Castro neighborhood gem with some of the best cioppino in the city for cozy team dinners."
+  },
+  {
+    "name": "Dumpling Home",
+    "cuisine": "Chinese/Shanghainese",
+    "rating": 4.4,
+    "price": "$",
+    "dietary": ["vegetarian options"],
+    "distance": "0.4 mi from venue",
+    "reason": "Affordable hand-pulled dumpling spot where ordering variety for the table becomes a collaborative activity."
+  },
+  {
+    "name": "Rich Table",
+    "cuisine": "New American",
+    "rating": 4.6,
+    "price": "$$$",
+    "dietary": ["vegetarian options", "gluten-free options", "vegan options"],
+    "distance": "1.8 mi from venue",
+    "reason": "Inventive, playful menu with signature sardine chips that give teams something memorable to talk about."
+  },
+  {
+    "name": "Nopa",
+    "cuisine": "California",
+    "rating": 4.5,
+    "price": "$$$",
+    "dietary": ["vegetarian options", "gluten-free options", "vegan options"],
+    "distance": "2.0 mi from venue",
+    "reason": "Late-night friendly restaurant with a wood-fired rotisserie and organic ingredients in a loft-like space."
+  }
+]

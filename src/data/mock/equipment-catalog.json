@@ -1,0 +1,398 @@
+[
+  {
+    "name": "HD Projector (3000+ lumens)",
+    "category": "av_tech",
+    "description": "Bright enough for large rooms with ambient lighting",
+    "typicalQuantity": { "small": 1, "medium": 1, "large": 2 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "TEAM_BONDING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 150
+  },
+  {
+    "name": "Portable Projection Screen (100\")",
+    "category": "av_tech",
+    "description": "Tripod-mounted screen, easy setup in any room",
+    "typicalQuantity": { "small": 1, "medium": 1, "large": 2 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 75
+  },
+  {
+    "name": "Wireless Presentation Clicker",
+    "category": "av_tech",
+    "description": "Slide advancer with laser pointer for presenters",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 15
+  },
+  {
+    "name": "Wireless Lavalier Microphone",
+    "category": "av_tech",
+    "description": "Clip-on mic for presenters and facilitators, hands-free operation",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 60
+  },
+  {
+    "name": "Handheld Wireless Microphone",
+    "category": "av_tech",
+    "description": "For Q&A sessions and audience participation",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 45
+  },
+  {
+    "name": "Portable PA Speaker System",
+    "category": "av_tech",
+    "description": "Powered speakers suitable for rooms up to 200 people",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 4 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "SOCIAL", "TEAM_BONDING", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 120
+  },
+  {
+    "name": "USB Conference Speakerphone",
+    "category": "av_tech",
+    "description": "360-degree pickup for hybrid meeting rooms",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["hybrid"],
+    "estimatedCost": 80
+  },
+  {
+    "name": "HD Webcam with Tripod",
+    "category": "av_tech",
+    "description": "High-quality camera for streaming to remote attendees",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["hybrid"],
+    "estimatedCost": 90
+  },
+  {
+    "name": "HDMI/USB-C Adapter Kit",
+    "category": "av_tech",
+    "description": "Assorted adapters and cables for connecting any laptop to displays",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "TEAM_BONDING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 25
+  },
+  {
+    "name": "Portable WiFi Hotspot",
+    "category": "av_tech",
+    "description": "Backup internet for venues with unreliable WiFi",
+    "typicalQuantity": { "small": 1, "medium": 1, "large": 2 },
+    "gatheringTypes": ["PROBLEM_SOLVING", "STRATEGIC_ALIGNMENT", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 40
+  },
+  {
+    "name": "Heavy-Duty Extension Cords (25ft)",
+    "category": "av_tech",
+    "description": "Reach distant power outlets safely",
+    "typicalQuantity": { "small": 2, "medium": 4, "large": 8 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "TEAM_BONDING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 15
+  },
+  {
+    "name": "Surge-Protected Power Strip (6-outlet)",
+    "category": "av_tech",
+    "description": "Safe multi-device charging, essential for hackathons",
+    "typicalQuantity": { "small": 2, "medium": 5, "large": 10 },
+    "gatheringTypes": ["PROBLEM_SOLVING", "STRATEGIC_ALIGNMENT", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 12
+  },
+  {
+    "name": "Cable Cover Strips (6ft)",
+    "category": "av_tech",
+    "description": "Floor-level cable management to prevent tripping hazards",
+    "typicalQuantity": { "small": 2, "medium": 4, "large": 6 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 10
+  },
+  {
+    "name": "Video Camera + Tripod",
+    "category": "av_tech",
+    "description": "Record sessions for team members who couldn't attend",
+    "typicalQuantity": { "small": 1, "medium": 1, "large": 2 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 100
+  },
+  {
+    "name": "Folding Tables (6ft rectangular)",
+    "category": "furniture",
+    "description": "Versatile work surfaces for breakout sessions and group work",
+    "typicalQuantity": { "small": 2, "medium": 4, "large": 8 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "TEAM_BONDING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 30
+  },
+  {
+    "name": "Folding Chairs",
+    "category": "furniture",
+    "description": "Standard seating, one per attendee plus extras",
+    "typicalQuantity": { "small": 15, "medium": 35, "large": 60 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "TEAM_BONDING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 5
+  },
+  {
+    "name": "Rolling Whiteboard (4x6ft)",
+    "category": "furniture",
+    "description": "Mobile whiteboard for brainstorming and planning sessions",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 4 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 65
+  },
+  {
+    "name": "Flip Chart Easel + Pad",
+    "category": "furniture",
+    "description": "Portable easel with 50-sheet pad for capturing ideas",
+    "typicalQuantity": { "small": 1, "medium": 3, "large": 5 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "TEAM_BONDING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 35
+  },
+  {
+    "name": "Podium / Lectern",
+    "category": "furniture",
+    "description": "Presentation stand for keynotes and announcements",
+    "typicalQuantity": { "small": 0, "medium": 1, "large": 1 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 50
+  },
+  {
+    "name": "Name Card Holders (table tents)",
+    "category": "furniture",
+    "description": "Reusable acrylic holders for table name cards",
+    "typicalQuantity": { "small": 15, "medium": 30, "large": 50 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "TEAM_BONDING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 2
+  },
+  {
+    "name": "Breakout Round Tables (4ft)",
+    "category": "furniture",
+    "description": "Small tables for breakout group discussions",
+    "typicalQuantity": { "small": 2, "medium": 4, "large": 8 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "TEAM_BONDING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 25
+  },
+  {
+    "name": "Signage Stands (A-frame)",
+    "category": "furniture",
+    "description": "Directional signage for wayfinding around the venue",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 4 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 20
+  },
+  {
+    "name": "Standing Desk (adjustable, portable)",
+    "category": "furniture",
+    "description": "Ergonomic option for long work sessions",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 4 },
+    "gatheringTypes": ["PROBLEM_SOLVING", "STRATEGIC_ALIGNMENT", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 45
+  },
+  {
+    "name": "Super Sticky Post-it Notes (assorted colors, 12-pack)",
+    "category": "supplies",
+    "description": "Essential for brainstorming, affinity mapping, and retros",
+    "typicalQuantity": { "small": 2, "medium": 4, "large": 8 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "TEAM_BONDING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 18
+  },
+  {
+    "name": "Dry-Erase Markers (8-color set)",
+    "category": "supplies",
+    "description": "For whiteboard sessions, one set per whiteboard",
+    "typicalQuantity": { "small": 1, "medium": 3, "large": 5 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 12
+  },
+  {
+    "name": "Whiteboard Eraser + Cleaning Spray",
+    "category": "supplies",
+    "description": "Keep whiteboards clean between sessions",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 4 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 8
+  },
+  {
+    "name": "Name Badges + Lanyards",
+    "category": "supplies",
+    "description": "Pre-printed or blank badges for all attendees",
+    "typicalQuantity": { "small": 15, "medium": 35, "large": 60 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "TEAM_BONDING", "SOCIAL", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 2
+  },
+  {
+    "name": "Printed Agenda Booklets",
+    "category": "supplies",
+    "description": "Physical copies of the agenda for each attendee",
+    "typicalQuantity": { "small": 15, "medium": 35, "large": 60 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 3
+  },
+  {
+    "name": "Ballpoint Pens (box of 24)",
+    "category": "supplies",
+    "description": "One per attendee plus extras for note-taking",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "TEAM_BONDING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 8
+  },
+  {
+    "name": "Lined Notebooks",
+    "category": "supplies",
+    "description": "One per attendee for notes and action items",
+    "typicalQuantity": { "small": 15, "medium": 35, "large": 60 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 4
+  },
+  {
+    "name": "Masking Tape / Painter's Tape",
+    "category": "supplies",
+    "description": "For mounting flip chart sheets and labels without damaging walls",
+    "typicalQuantity": { "small": 2, "medium": 3, "large": 5 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 5
+  },
+  {
+    "name": "Dot Vote Stickers (assorted colors)",
+    "category": "supplies",
+    "description": "For prioritization exercises and democratic voting",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 4 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 6
+  },
+  {
+    "name": "Index Cards (pack of 100)",
+    "category": "supplies",
+    "description": "For icebreakers, quick notes, and card sorting exercises",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["TEAM_BONDING", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 4
+  },
+  {
+    "name": "Sharpie Markers (12-pack, assorted)",
+    "category": "supplies",
+    "description": "Bold markers for flip charts, posters, and brainstorming",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 4 },
+    "gatheringTypes": ["STRATEGIC_ALIGNMENT", "PROBLEM_SOLVING", "TEAM_BONDING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 10
+  },
+  {
+    "name": "Large Display Timer",
+    "category": "supplies",
+    "description": "Visible countdown timer for facilitated sessions and time-boxing",
+    "typicalQuantity": { "small": 1, "medium": 1, "large": 2 },
+    "gatheringTypes": ["PROBLEM_SOLVING", "STRATEGIC_ALIGNMENT", "CUSTOM"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 25
+  },
+  {
+    "name": "Team Building Activity Kit",
+    "category": "specialty",
+    "description": "Pre-packaged kit with games, challenges, and facilitation guide",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["TEAM_BONDING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 75
+  },
+  {
+    "name": "Hackathon Starter Kit",
+    "category": "specialty",
+    "description": "Timers, buzzers, project tracking boards, demo signup sheets",
+    "typicalQuantity": { "small": 1, "medium": 1, "large": 2 },
+    "gatheringTypes": ["PROBLEM_SOLVING"],
+    "formatRelevance": ["in_person", "hybrid"],
+    "estimatedCost": 50
+  },
+  {
+    "name": "Photo Booth Backdrop + Props Kit",
+    "category": "specialty",
+    "description": "Branded backdrop with fun props for team photos",
+    "typicalQuantity": { "small": 1, "medium": 1, "large": 1 },
+    "gatheringTypes": ["SOCIAL", "TEAM_BONDING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 85
+  },
+  {
+    "name": "Awards / Recognition Trophies",
+    "category": "specialty",
+    "description": "Custom awards for hackathon winners or team recognition",
+    "typicalQuantity": { "small": 3, "medium": 5, "large": 8 },
+    "gatheringTypes": ["SOCIAL", "PROBLEM_SOLVING", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 20
+  },
+  {
+    "name": "Decorative Banner / Welcome Signage",
+    "category": "specialty",
+    "description": "Custom-printed banner with event name and branding",
+    "typicalQuantity": { "small": 1, "medium": 1, "large": 2 },
+    "gatheringTypes": ["SOCIAL", "TEAM_BONDING", "STRATEGIC_ALIGNMENT", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 40
+  },
+  {
+    "name": "Icebreaker Card Deck",
+    "category": "specialty",
+    "description": "Conversation starter cards for networking and team bonding",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["TEAM_BONDING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 15
+  },
+  {
+    "name": "Outdoor Canopy Tent (10x10ft)",
+    "category": "specialty",
+    "description": "Shade and rain protection for outdoor activities",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["TEAM_BONDING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 95
+  },
+  {
+    "name": "Portable Bluetooth Speaker",
+    "category": "specialty",
+    "description": "Small wireless speaker for background music and breakout activities",
+    "typicalQuantity": { "small": 1, "medium": 2, "large": 3 },
+    "gatheringTypes": ["TEAM_BONDING", "SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 35
+  },
+  {
+    "name": "Uplighting Kit (LED, 4-pack)",
+    "category": "specialty",
+    "description": "Ambient colored lighting for social events and celebrations",
+    "typicalQuantity": { "small": 1, "medium": 1, "large": 2 },
+    "gatheringTypes": ["SOCIAL", "CUSTOM"],
+    "formatRelevance": ["in_person"],
+    "estimatedCost": 60
+  }
+]

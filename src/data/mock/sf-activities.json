@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Bay Sailing Experience",
+    "venue": "San Francisco Sailing Company, Pier 39",
+    "duration": "2 hours",
+    "capacity": "Up to 25",
+    "type": "outdoor",
+    "reason": "Sailing past the Golden Gate Bridge creates a shared memorable experience that teams talk about for months."
+  },
+  {
+    "name": "Escape Room Challenge",
+    "venue": "Palace Games, Palace of Fine Arts",
+    "duration": "1.5 hours",
+    "capacity": "Up to 20",
+    "type": "indoor",
+    "reason": "Collaborative puzzle-solving in a historic setting that reveals team dynamics and communication styles."
+  },
+  {
+    "name": "Golden Gate Park Bike Tour",
+    "venue": "Golden Gate Park Bike & Skate",
+    "duration": "2.5 hours",
+    "capacity": "Up to 30",
+    "type": "outdoor",
+    "reason": "Leisurely group bike ride through the park with stops at gardens and landmarks, encouraging casual conversation."
+  },
+  {
+    "name": "Cooking Class — Dim Sum",
+    "venue": "Wok Wiz Chinatown Tours",
+    "duration": "2 hours",
+    "capacity": "Up to 16",
+    "type": "creative",
+    "reason": "Hands-on dim sum making in small groups builds collaboration and produces something everyone shares."
+  },
+  {
+    "name": "Muir Woods Nature Hike",
+    "venue": "Muir Woods National Monument",
+    "duration": "3 hours",
+    "capacity": "Up to 30",
+    "type": "outdoor",
+    "reason": "Walking among ancient redwoods provides a calming reset that promotes reflective conversation."
+  },
+  {
+    "name": "Improv Comedy Workshop",
+    "venue": "BATS Improv, Fort Mason",
+    "duration": "1.5 hours",
+    "capacity": "Up to 24",
+    "type": "creative",
+    "reason": "Yes-and improv exercises build psychological safety and active listening skills in a fun environment."
+  },
+  {
+    "name": "Street Art Walking Tour",
+    "venue": "Mission District, Clarion Alley",
+    "duration": "1.5 hours",
+    "capacity": "Up to 25",
+    "type": "cultural",
+    "reason": "Guided walk through the Mission's murals sparks creative discussion and exposes teams to diverse perspectives."
+  },
+  {
+    "name": "Yoga & Meditation Session",
+    "venue": "Baker Beach or Indoor Studio",
+    "duration": "1 hour",
+    "capacity": "Up to 30",
+    "type": "wellness",
+    "reason": "Morning mindfulness session sets a calm, focused tone for the day's work sessions."
+  },
+  {
+    "name": "Alcatraz Island Tour",
+    "venue": "Alcatraz Cruises, Pier 33",
+    "duration": "3 hours",
+    "capacity": "Up to 30",
+    "type": "cultural",
+    "reason": "Iconic SF experience with audio tour that gives teams shared stories and conversation starters."
+  },
+  {
+    "name": "Board Game Tournament",
+    "venue": "Victory Point Cafe, Berkeley",
+    "duration": "2 hours",
+    "capacity": "Up to 24",
+    "type": "indoor",
+    "reason": "Low-pressure competitive play in small groups encourages strategic thinking and natural bonding."
+  }
+]

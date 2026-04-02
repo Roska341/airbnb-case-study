@@ -1,0 +1,119 @@
+[
+  {
+    "id": "swag-1",
+    "name": "Gatherings Team Hoodie",
+    "price": 65,
+    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "image": "https://picsum.photos/seed/swag1/200/200",
+    "category": "apparel",
+    "description": "Premium pullover hoodie with Gatherings branding"
+  },
+  {
+    "id": "swag-2",
+    "name": "Airbnb Branded Water Bottle",
+    "price": 25,
+    "sizes": null,
+    "image": "https://picsum.photos/seed/swag2/200/200",
+    "category": "accessories",
+    "description": "Insulated stainless steel water bottle with Airbnb logo"
+  },
+  {
+    "id": "swag-3",
+    "name": "Premium Notebook & Pen Set",
+    "price": 30,
+    "sizes": null,
+    "image": "https://picsum.photos/seed/swag3/200/200",
+    "category": "office",
+    "description": "Hardcover ruled notebook with matching ballpoint pen"
+  },
+  {
+    "id": "swag-4",
+    "name": "Gatherings Event T-Shirt",
+    "price": 35,
+    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "image": "https://picsum.photos/seed/swag4/200/200",
+    "category": "apparel",
+    "description": "Soft-touch cotton tee with custom event artwork"
+  },
+  {
+    "id": "swag-5",
+    "name": "Canvas Tote Bag",
+    "price": 20,
+    "sizes": null,
+    "image": "https://picsum.photos/seed/swag5/200/200",
+    "category": "accessories",
+    "description": "Heavy-duty canvas tote with interior pocket and Airbnb print"
+  },
+  {
+    "id": "swag-6",
+    "name": "Wireless Charging Pad",
+    "price": 40,
+    "sizes": null,
+    "image": "https://picsum.photos/seed/swag6/200/200",
+    "category": "tech",
+    "description": "Qi-compatible fast charging pad with subtle Airbnb branding"
+  },
+  {
+    "id": "swag-7",
+    "name": "Custom Team Sticker Pack",
+    "price": 10,
+    "sizes": null,
+    "image": "https://picsum.photos/seed/swag7/200/200",
+    "category": "accessories",
+    "description": "Set of 12 die-cut vinyl stickers featuring team and Airbnb designs"
+  },
+  {
+    "id": "swag-8",
+    "name": "Airbnb Beanie",
+    "price": 28,
+    "sizes": ["One Size"],
+    "image": "https://picsum.photos/seed/swag8/200/200",
+    "category": "apparel",
+    "description": "Knit cuffed beanie with embroidered Airbnb logo"
+  },
+  {
+    "id": "swag-9",
+    "name": "Neoprene Laptop Sleeve",
+    "price": 45,
+    "sizes": ["13\"", "15\"", "16\""],
+    "image": "https://picsum.photos/seed/swag9/200/200",
+    "category": "tech",
+    "description": "Slim-fit neoprene sleeve with padded interior and Airbnb tag"
+  },
+  {
+    "id": "swag-10",
+    "name": "Airbnb Baseball Cap",
+    "price": 32,
+    "sizes": ["S/M", "L/XL"],
+    "image": "https://picsum.photos/seed/swag10/200/200",
+    "category": "apparel",
+    "description": "Structured six-panel cap with embroidered logo and adjustable strap"
+  },
+  {
+    "id": "swag-11",
+    "name": "Ceramic Coffee Mug",
+    "price": 18,
+    "sizes": null,
+    "image": "https://picsum.photos/seed/swag11/200/200",
+    "category": "accessories",
+    "description": "12 oz matte-finish ceramic mug with Gatherings wordmark"
+  },
+  {
+    "id": "swag-12",
+    "name": "Bluetooth Portable Speaker",
+    "price": 85,
+    "sizes": null,
+    "image": "https://picsum.photos/seed/swag12/200/200",
+    "category": "tech",
+    "description": "Compact waterproof speaker with 8-hour battery and custom Airbnb colorway"
+  },
+  {
+    "id": "swag-13",
+    "name": "Leather Luggage Tag",
+    "price": 15,
+    "sizes": null,
+    "image": "https://picsum.photos/seed/swag13/200/200",
+    "category": "accessories",
+    "description": "Full-grain leather tag with debossed Airbnb logo and privacy flap"
+  }
+]

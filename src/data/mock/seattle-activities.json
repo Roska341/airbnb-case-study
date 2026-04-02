@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Puget Sound Kayaking",
+    "venue": "Northwest Outdoor Center, Lake Union",
+    "duration": "2 hours",
+    "capacity": "Up to 24",
+    "type": "outdoor",
+    "reason": "Tandem kayaking on Lake Union with houseboat views — pairs people naturally for one-on-one conversation."
+  },
+  {
+    "name": "Pike Place Market Tour",
+    "venue": "Pike Place Market, 1st Avenue",
+    "duration": "2 hours",
+    "capacity": "Up to 25",
+    "type": "cultural",
+    "reason": "Guided tour through Seattle's iconic market with tastings — creates shared food memories and conversation starters."
+  },
+  {
+    "name": "Escape Room Challenge",
+    "venue": "Puzzle Break, Capitol Hill",
+    "duration": "1.5 hours",
+    "capacity": "Up to 20",
+    "type": "indoor",
+    "reason": "Collaborative puzzle-solving that surfaces team problem-solving patterns in a fun, low-pressure setting."
+  },
+  {
+    "name": "Museum of Pop Culture Visit",
+    "venue": "MoPOP, Seattle Center",
+    "duration": "2 hours",
+    "capacity": "Up to 30",
+    "type": "cultural",
+    "reason": "Interactive music and pop culture exhibits where teams can explore at their own pace and reconnect to share highlights."
+  },
+  {
+    "name": "Cooking Class — Pacific NW Cuisine",
+    "venue": "The Pantry at Delancey",
+    "duration": "2.5 hours",
+    "capacity": "Up to 16",
+    "type": "creative",
+    "reason": "Hands-on cooking with local ingredients builds collaboration — everyone contributes to a shared meal."
+  },
+  {
+    "name": "Discovery Park Nature Hike",
+    "venue": "Discovery Park, Magnolia",
+    "duration": "2 hours",
+    "capacity": "Up to 30",
+    "type": "outdoor",
+    "reason": "Coastal trail hike through old-growth forest to a lighthouse — nature walks promote reflective, open conversation."
+  },
+  {
+    "name": "Glassblowing Workshop",
+    "venue": "Seattle Glassblowing Studio",
+    "duration": "2 hours",
+    "capacity": "Up to 15",
+    "type": "creative",
+    "reason": "Unique hands-on creative experience where everyone makes something — a tangible team memento to take home."
+  },
+  {
+    "name": "Underground Tour",
+    "venue": "Bill Speidel's Underground Tour, Pioneer Square",
+    "duration": "1.5 hours",
+    "capacity": "Up to 25",
+    "type": "cultural",
+    "reason": "Humorous historical tour beneath Seattle streets — entertaining shared experience with great group photo opportunities."
+  },
+  {
+    "name": "Yoga & Meditation at Kerry Park",
+    "venue": "Kerry Park, Queen Anne",
+    "duration": "1 hour",
+    "capacity": "Up to 25",
+    "type": "wellness",
+    "reason": "Morning yoga overlooking the Seattle skyline and Mt. Rainier — sets a calm, focused tone for the day."
+  },
+  {
+    "name": "Axe Throwing",
+    "venue": "Bad Axe Throwing, SoDo",
+    "duration": "1.5 hours",
+    "capacity": "Up to 24",
+    "type": "adventure",
+    "reason": "Fun competitive activity that breaks down workplace hierarchy — everyone starts as a beginner together."
+  }
+]

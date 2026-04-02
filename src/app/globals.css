@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-rausch: #FF5A5F;
+  --color-babu: #00A699;
+  --color-arches: #FC642D;
+  --color-hof: #484848;
+  --color-foggy: #767676;
+  --color-beach: #F5F5F5;
+  --color-kazan: #222222;
+  --color-light-gray: #EBEBEB;
+  --color-bg-gray: #F7F7F7;
+
+  --font-sans: "Circular", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --radius-card: 12px;
+  --radius-btn: 8px;
+  --radius-hero: 24px;
+  --radius-pill: 9999px;
+
+  --shadow-resting: 0 2px 4px rgba(0,0,0,0.08);
+  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.12);
+  --shadow-modal: 0 8px 28px rgba(0,0,0,0.15);
+}
+
+@layer base {
+  body {
+    @apply bg-bg-gray text-hof font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-kazan tracking-tight font-bold;
+  }
+  h1 { @apply text-[32px] leading-tight; }
+  h2 { @apply text-[26px] leading-tight; }
+  h3 { @apply text-[22px] leading-snug; }
+  h4 { @apply text-[18px] leading-snug; }
+}

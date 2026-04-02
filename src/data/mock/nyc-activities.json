@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Brooklyn Bridge Walking Tour",
+    "venue": "Brooklyn Bridge, City Hall entrance",
+    "duration": "1.5 hours",
+    "capacity": "Up to 30",
+    "type": "cultural",
+    "reason": "Iconic walk with stunning views that provides natural conversation time and a shared NYC experience."
+  },
+  {
+    "name": "Escape Room Challenge",
+    "venue": "Mission Escape Games, Midtown",
+    "duration": "1.5 hours",
+    "capacity": "Up to 24",
+    "type": "indoor",
+    "reason": "Collaborative puzzle-solving that reveals team dynamics and communication styles in a fun, low-stakes environment."
+  },
+  {
+    "name": "Central Park Bike Tour",
+    "venue": "Bike Rent NYC, Columbus Circle",
+    "duration": "2 hours",
+    "capacity": "Up to 25",
+    "type": "outdoor",
+    "reason": "Leisurely group ride through Central Park with stops at landmarks, perfect for casual team bonding."
+  },
+  {
+    "name": "Broadway Show",
+    "venue": "Broadway Theater District",
+    "duration": "2.5 hours",
+    "capacity": "Up to 30",
+    "type": "cultural",
+    "reason": "Shared cultural experience that gives teams something to discuss over dinner afterward."
+  },
+  {
+    "name": "Pottery Workshop",
+    "venue": "Color Me Mine, Upper West Side",
+    "duration": "2 hours",
+    "capacity": "Up to 20",
+    "type": "creative",
+    "reason": "Hands-on creative activity that levels the playing field — everyone's a beginner, reducing hierarchy."
+  },
+  {
+    "name": "Rooftop Yoga Session",
+    "venue": "230 Fifth Rooftop",
+    "duration": "1 hour",
+    "capacity": "Up to 30",
+    "type": "wellness",
+    "reason": "Morning yoga with city views sets a mindful, focused tone for the day's work sessions."
+  },
+  {
+    "name": "Food Tour — Lower East Side",
+    "venue": "Hester Street to Orchard Street",
+    "duration": "2.5 hours",
+    "capacity": "Up to 20",
+    "type": "cultural",
+    "reason": "Walking food tour through diverse neighborhoods creates shared culinary discoveries and conversation."
+  },
+  {
+    "name": "Improv Comedy Workshop",
+    "venue": "Upright Citizens Brigade, Hell's Kitchen",
+    "duration": "1.5 hours",
+    "capacity": "Up to 24",
+    "type": "creative",
+    "reason": "Yes-and improv exercises build psychological safety, active listening, and spontaneous collaboration."
+  },
+  {
+    "name": "Bowling Night",
+    "venue": "Brooklyn Bowl, Williamsburg",
+    "duration": "2 hours",
+    "capacity": "Up to 30",
+    "type": "indoor",
+    "reason": "Casual competitive fun with lanes, food, and drinks — naturally mixes people across team boundaries."
+  },
+  {
+    "name": "High Line Walking Tour",
+    "venue": "The High Line, Gansevoort Street entrance",
+    "duration": "1.5 hours",
+    "capacity": "Up to 25",
+    "type": "outdoor",
+    "reason": "Elevated urban park walk with art installations that spark creative discussion in a relaxed setting."
+  }
+]

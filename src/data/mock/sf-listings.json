@@ -1,0 +1,122 @@
+[
+  {
+    "id": "sf-1",
+    "title": "SoMa Tech Loft — Steps from Moscone",
+    "price": 245,
+    "rating": 4.89,
+    "reviews": 412,
+    "guests": 4,
+    "bedrooms": 2,
+    "amenities": ["WiFi", "Kitchen", "Workspace", "AC", "Smart TV"],
+    "image": "https://picsum.photos/seed/sf-soma-loft/400/300",
+    "distance": "0.3 mi from venue"
+  },
+  {
+    "id": "sf-2",
+    "title": "Pacific Heights Victorian with Bay Views",
+    "price": 395,
+    "rating": 4.96,
+    "reviews": 187,
+    "guests": 8,
+    "bedrooms": 4,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "Fireplace", "Garden", "Parking"],
+    "image": "https://picsum.photos/seed/sf-pacheights-victorian/400/300",
+    "distance": "2.1 mi from venue"
+  },
+  {
+    "id": "sf-3",
+    "title": "Mission District Colorful Flat",
+    "price": 165,
+    "rating": 4.82,
+    "reviews": 298,
+    "guests": 4,
+    "bedrooms": 2,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "Patio", "Bike Storage"],
+    "image": "https://picsum.photos/seed/sf-mission-flat/400/300",
+    "distance": "1.5 mi from venue"
+  },
+  {
+    "id": "sf-4",
+    "title": "Financial District Executive Suite",
+    "price": 310,
+    "rating": 4.91,
+    "reviews": 156,
+    "guests": 2,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "Workspace", "Gym", "Concierge", "Rooftop Access"],
+    "image": "https://picsum.photos/seed/sf-fidi-suite/400/300",
+    "distance": "0.4 mi from venue"
+  },
+  {
+    "id": "sf-5",
+    "title": "Nob Hill Penthouse — Panoramic City Views",
+    "price": 520,
+    "rating": 4.98,
+    "reviews": 73,
+    "guests": 6,
+    "bedrooms": 3,
+    "amenities": ["WiFi", "Kitchen", "Rooftop Terrace", "Hot Tub", "Fireplace", "Doorman"],
+    "image": "https://picsum.photos/seed/sf-nobhill-penthouse/400/300",
+    "distance": "1.0 mi from venue"
+  },
+  {
+    "id": "sf-6",
+    "title": "Hayes Valley Modern Apartment",
+    "price": 195,
+    "rating": 4.85,
+    "reviews": 221,
+    "guests": 3,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "AC", "Smart TV"],
+    "image": "https://picsum.photos/seed/sf-hayes-apartment/400/300",
+    "distance": "0.9 mi from venue"
+  },
+  {
+    "id": "sf-7",
+    "title": "Marina District House — Great for Teams",
+    "price": 480,
+    "rating": 4.94,
+    "reviews": 104,
+    "guests": 12,
+    "bedrooms": 5,
+    "amenities": ["WiFi", "Kitchen", "Parking", "Backyard", "BBQ Grill", "Game Room"],
+    "image": "https://picsum.photos/seed/sf-marina-house/400/300",
+    "distance": "2.8 mi from venue"
+  },
+  {
+    "id": "sf-8",
+    "title": "Embarcadero Waterfront Studio",
+    "price": 175,
+    "rating": 4.79,
+    "reviews": 339,
+    "guests": 2,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "Workspace", "Coffee Maker", "Bay Views", "Gym"],
+    "image": "https://picsum.photos/seed/sf-embarcadero-studio/400/300",
+    "distance": "0.6 mi from venue"
+  },
+  {
+    "id": "sf-9",
+    "title": "Sunset District Family Home with Garden",
+    "price": 140,
+    "rating": 4.71,
+    "reviews": 187,
+    "guests": 8,
+    "bedrooms": 4,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "Garden", "Parking", "Fireplace"],
+    "image": "https://picsum.photos/seed/sf-sunset-home/400/300",
+    "distance": "3.5 mi from venue"
+  },
+  {
+    "id": "sf-10",
+    "title": "Presidio Heights Team Retreat — Full House",
+    "price": 550,
+    "rating": 4.97,
+    "reviews": 38,
+    "guests": 18,
+    "bedrooms": 7,
+    "amenities": ["WiFi", "Kitchen", "Pool", "Hot Tub", "Game Room", "Parking", "EV Charger", "Fire Pit"],
+    "image": "https://picsum.photos/seed/sf-presidio-retreat/400/300",
+    "distance": "3.2 mi from venue"
+  }
+]

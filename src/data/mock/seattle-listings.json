@@ -1,0 +1,122 @@
+[
+  {
+    "id": "seattle-1",
+    "title": "Capitol Hill Modern Loft — Walkable",
+    "price": 195,
+    "rating": 4.90,
+    "reviews": 287,
+    "guests": 4,
+    "bedrooms": 2,
+    "amenities": ["WiFi", "Kitchen", "Workspace", "AC", "Smart TV"],
+    "image": "https://picsum.photos/seed/sea-caphill-loft/400/300",
+    "distance": "0.4 mi from venue"
+  },
+  {
+    "id": "seattle-2",
+    "title": "Fremont Craftsman Bungalow with Garden",
+    "price": 165,
+    "rating": 4.87,
+    "reviews": 198,
+    "guests": 6,
+    "bedrooms": 3,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "Garden", "BBQ Grill", "Parking"],
+    "image": "https://picsum.photos/seed/sea-fremont-bungalow/400/300",
+    "distance": "1.8 mi from venue"
+  },
+  {
+    "id": "seattle-3",
+    "title": "South Lake Union Penthouse — Water Views",
+    "price": 420,
+    "rating": 4.96,
+    "reviews": 76,
+    "guests": 6,
+    "bedrooms": 3,
+    "amenities": ["WiFi", "Kitchen", "Rooftop Terrace", "Hot Tub", "Gym", "EV Charger"],
+    "image": "https://picsum.photos/seed/sea-slu-penthouse/400/300",
+    "distance": "0.6 mi from venue"
+  },
+  {
+    "id": "seattle-4",
+    "title": "Pioneer Square Boutique Suite",
+    "price": 225,
+    "rating": 4.88,
+    "reviews": 163,
+    "guests": 2,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "Workspace", "Coffee Bar", "Exposed Brick", "Smart TV"],
+    "image": "https://picsum.photos/seed/sea-pioneer-suite/400/300",
+    "distance": "0.3 mi from venue"
+  },
+  {
+    "id": "seattle-5",
+    "title": "Ballard Scandinavian-Style Townhouse",
+    "price": 180,
+    "rating": 4.83,
+    "reviews": 234,
+    "guests": 5,
+    "bedrooms": 2,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "Patio", "Parking", "Fireplace"],
+    "image": "https://picsum.photos/seed/sea-ballard-townhouse/400/300",
+    "distance": "2.5 mi from venue"
+  },
+  {
+    "id": "seattle-6",
+    "title": "Queen Anne Studio — Space Needle Views",
+    "price": 130,
+    "rating": 4.75,
+    "reviews": 312,
+    "guests": 2,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "AC", "Coffee Maker", "City Views", "Smart TV"],
+    "image": "https://picsum.photos/seed/sea-queenanne-studio/400/300",
+    "distance": "1.0 mi from venue"
+  },
+  {
+    "id": "seattle-7",
+    "title": "West Seattle Beach House — Puget Sound",
+    "price": 350,
+    "rating": 4.94,
+    "reviews": 108,
+    "guests": 10,
+    "bedrooms": 4,
+    "amenities": ["WiFi", "Kitchen", "Hot Tub", "Fire Pit", "Beach Access", "Parking", "Kayaks"],
+    "image": "https://picsum.photos/seed/sea-westseattle-beach/400/300",
+    "distance": "3.8 mi from venue"
+  },
+  {
+    "id": "seattle-8",
+    "title": "Downtown Corporate Apartment — Convention Ready",
+    "price": 85,
+    "rating": 4.58,
+    "reviews": 145,
+    "guests": 2,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "Workspace", "AC", "Gym", "Concierge"],
+    "image": "https://picsum.photos/seed/sea-downtown-corp/400/300",
+    "distance": "0.2 mi from venue"
+  },
+  {
+    "id": "seattle-9",
+    "title": "Wallingford Family Home — Quiet Neighborhood",
+    "price": 155,
+    "rating": 4.81,
+    "reviews": 176,
+    "guests": 8,
+    "bedrooms": 4,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "Backyard", "Parking", "Fireplace"],
+    "image": "https://picsum.photos/seed/sea-wallingford-home/400/300",
+    "distance": "2.8 mi from venue"
+  },
+  {
+    "id": "seattle-10",
+    "title": "Mercer Island Lakefront Retreat — Full Team",
+    "price": 540,
+    "rating": 4.99,
+    "reviews": 31,
+    "guests": 20,
+    "bedrooms": 8,
+    "amenities": ["WiFi", "Kitchen", "Pool", "Hot Tub", "Dock", "Game Room", "Parking", "Fire Pit", "EV Charger"],
+    "image": "https://picsum.photos/seed/sea-mercer-retreat/400/300",
+    "distance": "4.0 mi from venue"
+  }
+]

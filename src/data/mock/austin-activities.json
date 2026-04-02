@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Group Kayaking",
+    "venue": "Rowing Dock at Lady Bird Lake",
+    "duration": "2 hours",
+    "capacity": "Up to 30",
+    "type": "outdoor",
+    "reason": "Iconic Austin experience where tandem kayaks naturally pair people up for conversation."
+  },
+  {
+    "name": "Escape Room Challenge",
+    "venue": "The Escape Game Austin",
+    "duration": "1.5 hours",
+    "capacity": "Up to 24",
+    "type": "indoor",
+    "reason": "Collaborative puzzle-solving that reveals team dynamics and communication styles in a fun setting."
+  },
+  {
+    "name": "Graffiti & Street Art Tour",
+    "venue": "HOPE Outdoor Gallery / East Austin Murals",
+    "duration": "1.5 hours",
+    "capacity": "Up to 25",
+    "type": "cultural",
+    "reason": "Walking tour through Austin's vibrant street art scene that sparks creative thinking and discussion."
+  },
+  {
+    "name": "Stand-Up Paddleboarding",
+    "venue": "Congress Avenue Kayaks",
+    "duration": "1.5 hours",
+    "capacity": "Up to 20",
+    "type": "outdoor",
+    "reason": "Low-barrier water activity on Lady Bird Lake with plenty of time for casual conversations."
+  },
+  {
+    "name": "Cooking Class: Texas BBQ",
+    "venue": "Epicurean Hotel Kitchen",
+    "duration": "2.5 hours",
+    "capacity": "Up to 16",
+    "type": "creative",
+    "reason": "Hands-on BBQ class where teams learn rubs, smoking, and plating together before sharing a meal."
+  },
+  {
+    "name": "Bat Bridge Sunset Walk",
+    "venue": "Ann W. Richards Congress Avenue Bridge",
+    "duration": "1 hour",
+    "capacity": "Up to 40",
+    "type": "outdoor",
+    "reason": "Uniquely Austin experience watching 1.5 million bats emerge at sunset, a guaranteed conversation starter."
+  },
+  {
+    "name": "Guided Barton Springs Swim",
+    "venue": "Barton Springs Pool",
+    "duration": "1.5 hours",
+    "capacity": "Up to 30",
+    "type": "wellness",
+    "reason": "Natural spring-fed pool at a refreshing 68 degrees, perfect for unwinding after focused work sessions."
+  },
+  {
+    "name": "Live Music Crawl",
+    "venue": "6th Street / Rainey Street District",
+    "duration": "2.5 hours",
+    "capacity": "Up to 20",
+    "type": "cultural",
+    "reason": "Guided tour of Austin's legendary live music scene, visiting three curated venues in one evening."
+  },
+  {
+    "name": "Team Trivia Night",
+    "venue": "Pinthouse Pizza",
+    "duration": "2 hours",
+    "capacity": "Up to 30",
+    "type": "indoor",
+    "reason": "Pub trivia format that mixes teams across departments, rewarding diverse knowledge over seniority."
+  },
+  {
+    "name": "Morning Yoga in the Park",
+    "venue": "Zilker Park Great Lawn",
+    "duration": "1 hour",
+    "capacity": "Up to 30",
+    "type": "wellness",
+    "reason": "Gentle yoga session outdoors that helps teams start the day grounded and connected."
+  }
+]

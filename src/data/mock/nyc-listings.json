@@ -1,0 +1,122 @@
+[
+  {
+    "id": "nyc-1",
+    "title": "Chelsea Loft — Exposed Brick & High Ceilings",
+    "price": 275,
+    "rating": 4.91,
+    "reviews": 489,
+    "guests": 4,
+    "bedrooms": 2,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "AC", "Smart TV"],
+    "image": "https://picsum.photos/seed/nyc-chelsea-loft/400/300",
+    "distance": "0.4 mi from venue"
+  },
+  {
+    "id": "nyc-2",
+    "title": "Williamsburg Artist Apartment",
+    "price": 185,
+    "rating": 4.84,
+    "reviews": 312,
+    "guests": 3,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "Kitchen", "Workspace", "Rooftop Access", "Bike Storage"],
+    "image": "https://picsum.photos/seed/nyc-williamsburg-apt/400/300",
+    "distance": "1.8 mi from venue"
+  },
+  {
+    "id": "nyc-3",
+    "title": "Midtown Executive Penthouse",
+    "price": 525,
+    "rating": 4.98,
+    "reviews": 67,
+    "guests": 6,
+    "bedrooms": 3,
+    "amenities": ["WiFi", "Kitchen", "Doorman", "Gym", "Rooftop Terrace", "City Views"],
+    "image": "https://picsum.photos/seed/nyc-midtown-penthouse/400/300",
+    "distance": "0.2 mi from venue"
+  },
+  {
+    "id": "nyc-4",
+    "title": "SoHo Boutique Suite — Designer Interiors",
+    "price": 340,
+    "rating": 4.93,
+    "reviews": 198,
+    "guests": 2,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "Workspace", "Coffee Bar", "AC", "Concierge"],
+    "image": "https://picsum.photos/seed/nyc-soho-suite/400/300",
+    "distance": "0.7 mi from venue"
+  },
+  {
+    "id": "nyc-5",
+    "title": "Lower East Side Cozy Walk-Up",
+    "price": 120,
+    "rating": 4.72,
+    "reviews": 256,
+    "guests": 2,
+    "bedrooms": 1,
+    "amenities": ["WiFi", "AC", "Smart TV", "Coffee Maker"],
+    "image": "https://picsum.photos/seed/nyc-les-walkup/400/300",
+    "distance": "1.0 mi from venue"
+  },
+  {
+    "id": "nyc-6",
+    "title": "Brooklyn Heights Brownstone — Classic NYC",
+    "price": 420,
+    "rating": 4.95,
+    "reviews": 143,
+    "guests": 10,
+    "bedrooms": 5,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "Garden", "Fireplace", "Parking"],
+    "image": "https://picsum.photos/seed/nyc-bklyn-brownstone/400/300",
+    "distance": "2.3 mi from venue"
+  },
+  {
+    "id": "nyc-7",
+    "title": "Hell's Kitchen Modern Two-Bedroom",
+    "price": 210,
+    "rating": 4.86,
+    "reviews": 378,
+    "guests": 5,
+    "bedrooms": 2,
+    "amenities": ["WiFi", "Kitchen", "AC", "Washer/Dryer", "Smart TV"],
+    "image": "https://picsum.photos/seed/nyc-hk-modern/400/300",
+    "distance": "0.5 mi from venue"
+  },
+  {
+    "id": "nyc-8",
+    "title": "Tribeca Industrial Loft — Team Space",
+    "price": 480,
+    "rating": 4.94,
+    "reviews": 91,
+    "guests": 12,
+    "bedrooms": 5,
+    "amenities": ["WiFi", "Kitchen", "Workspace", "Projector", "AC", "Washer/Dryer"],
+    "image": "https://picsum.photos/seed/nyc-tribeca-loft/400/300",
+    "distance": "0.9 mi from venue"
+  },
+  {
+    "id": "nyc-9",
+    "title": "Upper West Side Family Apartment",
+    "price": 155,
+    "rating": 4.80,
+    "reviews": 267,
+    "guests": 6,
+    "bedrooms": 3,
+    "amenities": ["WiFi", "Kitchen", "Washer/Dryer", "Doorman", "Central Park Views"],
+    "image": "https://picsum.photos/seed/nyc-uws-apartment/400/300",
+    "distance": "2.0 mi from venue"
+  },
+  {
+    "id": "nyc-10",
+    "title": "Long Island City Team House — Full Floor",
+    "price": 380,
+    "rating": 4.90,
+    "reviews": 54,
+    "guests": 16,
+    "bedrooms": 7,
+    "amenities": ["WiFi", "Kitchen", "Rooftop Access", "Game Room", "Parking", "BBQ Grill", "Skyline Views"],
+    "image": "https://picsum.photos/seed/nyc-lic-teamhouse/400/300",
+    "distance": "3.2 mi from venue"
+  }
+]

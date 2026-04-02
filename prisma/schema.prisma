@@ -1,0 +1,219 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  role      String   @default("EMPLOYEE") // MANAGER, EMPLOYEE, ADMIN
+  oktaId    String?  @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  gatherings     Gathering[]
+  invitations    Invitation[]
+  registrations  Registration[]
+  swagOrders     SwagOrder[]
+  notifications  Notification[]
+  bookedAccommodations  Accommodation[] @relation("BookedBy")
+  bookedForAccommodations Accommodation[] @relation("BookedFor")
+}
+
+model Gathering {
+  id          String   @id @default(cuid())
+  title       String
+  purpose     String?
+  type        String   @default("TEAM_BONDING") // TEAM_BONDING, STRATEGIC_ALIGNMENT, PROBLEM_SOLVING, SOCIAL, TEAM_OFFSITE, COMPANY_OFFSITE, CUSTOM
+  description String?
+  location    String
+  startDate   DateTime
+  endDate     DateTime
+  groupSize   Int
+  budget      Float?
+  status      String   @default("DRAFT") // DRAFT, ACTIVE, COMPLETED
+  teamContext      String?
+  duration         Int?
+  dailyStartTime   String?  // e.g. "9:00 AM"
+  dailyEndTime     String?  // e.g. "5:00 PM"
+  createdById String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  createdBy      User             @relation(fields: [createdById], references: [id])
+  agendaBlocks   AgendaBlock[]
+  invitations    Invitation[]
+  registrations  Registration[]
+  accommodation  Accommodation[]
+  swagOrders     SwagOrder[]
+  notifications  Notification[]
+  moduleStatuses ModuleStatus[]
+  budget_detail  Budget?
+  equipmentItems        EquipmentItem[]
+  registrationQuestions RegistrationQuestion[]
+}
+
+model ModuleStatus {
+  id          String @id @default(cuid())
+  gatheringId String
+  module      String // agenda, accommodation, swag, invitations, equipment
+  status      String @default("pending") // pending, in_progress, complete
+
+  gathering Gathering @relation(fields: [gatheringId], references: [id], onDelete: Cascade)
+
+  @@unique([gatheringId, module])
+}
+
+model Budget {
+  id            String @id @default(cuid())
+  gatheringId   String @unique
+  accommodation Float  @default(0)
+  food          Float  @default(0)
+  activities    Float  @default(0)
+  swag          Float  @default(0)
+  travel        Float  @default(0)
+  equipment     Float  @default(0)
+
+  gathering Gathering @relation(fields: [gatheringId], references: [id], onDelete: Cascade)
+}
+
+model AgendaBlock {
+  id             String   @id @default(cuid())
+  gatheringId    String
+  day            Int
+  startTime      String
+  endTime        String
+  title          String
+  description    String?
+  type           String   @default("WORK_SESSION") // ICEBREAKER, WORK_SESSION, MEAL, ACTIVITY, FREE_TIME, TRAVEL
+  aiGenerated    Boolean  @default(false)
+  variant        String?
+  restaurantData String?  // JSON string
+  activityData   String?  // JSON string
+  sortOrder      Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  gathering Gathering @relation(fields: [gatheringId], references: [id], onDelete: Cascade)
+}
+
+model Invitation {
+  id          String    @id @default(cuid())
+  gatheringId String
+  employeeId  String?
+  guestName   String
+  guestEmail  String
+  status      String    @default("NOT_INVITED") // NOT_INVITED, PENDING, ACCEPTED, DECLINED
+  sentAt      DateTime?
+  respondedAt DateTime?
+  createdAt   DateTime  @default(now())
+
+  gathering    Gathering     @relation(fields: [gatheringId], references: [id], onDelete: Cascade)
+  employee     User?         @relation(fields: [employeeId], references: [id])
+  registration Registration?
+
+  @@unique([gatheringId, guestEmail])
+}
+
+model Registration {
+  id                   String   @id @default(cuid())
+  gatheringId          String
+  userId               String
+  invitationId         String?  @unique
+  dietaryRestrictions  String?
+  accessibilityNeeds   String?
+  travelOriginCity     String?
+  tshirtSize           String?
+  additionalNotes      String?
+  needsLodging         Boolean  @default(false)
+  customResponses      String?  // JSON: { questionId: answer }
+  createdAt            DateTime @default(now())
+
+  gathering  Gathering   @relation(fields: [gatheringId], references: [id], onDelete: Cascade)
+  user       User        @relation(fields: [userId], references: [id])
+  invitation Invitation? @relation(fields: [invitationId], references: [id])
+}
+
+model RegistrationQuestion {
+  id          String   @id @default(cuid())
+  gatheringId String
+  label       String
+  type        String   // text, multiple_choice
+  options     String?  // JSON array: ["Option A", "Option B"]
+  required    Boolean  @default(false)
+  visible     Boolean  @default(true)
+  isDefault   Boolean  @default(false)
+  sortOrder   Int
+  createdAt   DateTime @default(now())
+
+  gathering Gathering @relation(fields: [gatheringId], references: [id], onDelete: Cascade)
+}
+
+model Accommodation {
+  id                   String   @id @default(cuid())
+  gatheringId          String
+  airbnbListingId      String?
+  title                String
+  address              String?
+  pricePerNight        Float
+  imageUrl             String?
+  checkIn              DateTime
+  checkOut             DateTime
+  bookedById           String
+  bookedForId          String?
+  passkeyConfirmation  String?
+  bookingType          String   @default("INDIVIDUAL") // BULK, INDIVIDUAL
+  createdAt            DateTime @default(now())
+
+  gathering Gathering @relation(fields: [gatheringId], references: [id], onDelete: Cascade)
+  bookedBy  User      @relation("BookedBy", fields: [bookedById], references: [id])
+  bookedFor User?     @relation("BookedFor", fields: [bookedForId], references: [id])
+}
+
+model SwagOrder {
+  id          String   @id @default(cuid())
+  gatheringId String
+  orderedById String
+  items       String   // JSON string: [{ itemId, name, size, quantity, price }]
+  status      String   @default("PENDING") // PENDING, ORDERED, SHIPPED
+  totalCost   Float
+  createdAt   DateTime @default(now())
+
+  gathering Gathering @relation(fields: [gatheringId], references: [id], onDelete: Cascade)
+  orderedBy User      @relation(fields: [orderedById], references: [id])
+}
+
+model Notification {
+  id          String   @id @default(cuid())
+  userId      String
+  message     String
+  type        String   // invitation, update, reminder
+  read        Boolean  @default(false)
+  gatheringId String?
+  createdAt   DateTime @default(now())
+
+  user      User       @relation(fields: [userId], references: [id])
+  gathering Gathering? @relation(fields: [gatheringId], references: [id], onDelete: Cascade)
+}
+
+model EquipmentItem {
+  id          String   @id @default(cuid())
+  gatheringId String
+  category    String   // av_tech, furniture, supplies, specialty
+  name        String
+  quantity    Int      @default(1)
+  unitCost    Float    @default(0)
+  priority    String   @default("essential") // essential, recommended, optional
+  status      String   @default("needed")    // needed, ordered, confirmed
+  vendorNotes String?
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  gathering Gathering @relation(fields: [gatheringId], references: [id], onDelete: Cascade)
+}

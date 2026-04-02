@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Suerte",
+    "cuisine": "Contemporary Mexican",
+    "rating": 4.7,
+    "price": "$$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "0.8 mi from venue",
+    "reason": "Acclaimed East Austin restaurant with communal tables perfect for team dining and shared plates."
+  },
+  {
+    "name": "Jo's Coffee",
+    "cuisine": "Cafe/Breakfast",
+    "rating": 4.5,
+    "price": "$",
+    "dietary": ["vegan options", "gluten-free options"],
+    "distance": "0.3 mi from venue",
+    "reason": "Iconic Austin cafe with great outdoor seating and a relaxed vibe for morning team meetups."
+  },
+  {
+    "name": "Loro",
+    "cuisine": "Asian Smokehouse",
+    "rating": 4.6,
+    "price": "$$",
+    "dietary": ["vegetarian options"],
+    "distance": "1.2 mi from venue",
+    "reason": "James Beard-nominated fusion spot with a large outdoor patio ideal for group dining."
+  },
+  {
+    "name": "Uchi",
+    "cuisine": "Japanese",
+    "rating": 4.8,
+    "price": "$$$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "1.5 mi from venue",
+    "reason": "World-class Japanese restaurant where omakase-style sharing creates a memorable team experience."
+  },
+  {
+    "name": "Terry Black's Barbecue",
+    "cuisine": "Texas BBQ",
+    "rating": 4.7,
+    "price": "$$",
+    "dietary": ["gluten-free options"],
+    "distance": "1.0 mi from venue",
+    "reason": "Legendary Austin BBQ with long communal tables that naturally bring teams together over brisket."
+  },
+  {
+    "name": "Odd Duck",
+    "cuisine": "Farm-to-Table American",
+    "rating": 4.6,
+    "price": "$$$",
+    "dietary": ["vegetarian options", "gluten-free options", "vegan options"],
+    "distance": "1.8 mi from venue",
+    "reason": "Seasonal, locally sourced menu designed for sharing, making it ideal for team dinners."
+  },
+  {
+    "name": "Veracruz All Natural",
+    "cuisine": "Mexican",
+    "rating": 4.5,
+    "price": "$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "0.6 mi from venue",
+    "reason": "Beloved taco truck turned institution with fast, casual service perfect for team lunches."
+  },
+  {
+    "name": "Emmer & Rye",
+    "cuisine": "New American",
+    "rating": 4.7,
+    "price": "$$$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "0.9 mi from venue",
+    "reason": "Innovative grain-focused restaurant with a dim sum cart service that sparks conversation."
+  },
+  {
+    "name": "Ramen Tatsu-Ya",
+    "cuisine": "Japanese Ramen",
+    "rating": 4.6,
+    "price": "$$",
+    "dietary": ["vegetarian options"],
+    "distance": "2.1 mi from venue",
+    "reason": "Top-rated ramen spot with a lively atmosphere that energizes teams after a long work day."
+  },
+  {
+    "name": "Launderette",
+    "cuisine": "Mediterranean-American",
+    "rating": 4.5,
+    "price": "$$$",
+    "dietary": ["vegetarian options", "gluten-free options", "vegan options"],
+    "distance": "1.3 mi from venue",
+    "reason": "Stylish East Austin spot with a versatile menu that accommodates diverse dietary needs."
+  },
+  {
+    "name": "Dai Due",
+    "cuisine": "Texas Farm-to-Table",
+    "rating": 4.6,
+    "price": "$$$",
+    "dietary": ["gluten-free options"],
+    "distance": "0.7 mi from venue",
+    "reason": "Butcher shop and restaurant celebrating Texas ingredients with a rustic team dinner atmosphere."
+  },
+  {
+    "name": "Salty Sow",
+    "cuisine": "Gastropub",
+    "rating": 4.4,
+    "price": "$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "2.5 mi from venue",
+    "reason": "Neighborhood gastropub with a huge shaded patio and shareable meat and cheese boards."
+  },
+  {
+    "name": "Lenoir",
+    "cuisine": "French-Inspired Southern",
+    "rating": 4.7,
+    "price": "$$$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "1.6 mi from venue",
+    "reason": "Intimate wine garden setting that creates a special occasion feel for milestone celebrations."
+  },
+  {
+    "name": "Nixta Taqueria",
+    "cuisine": "Mexican",
+    "rating": 4.5,
+    "price": "$",
+    "dietary": ["vegetarian options", "vegan options"],
+    "distance": "0.5 mi from venue",
+    "reason": "James Beard Award-winning taqueria with casual counter service great for quick team lunches."
+  },
+  {
+    "name": "Intero",
+    "cuisine": "Italian",
+    "rating": 4.6,
+    "price": "$$$",
+    "dietary": ["vegetarian options"],
+    "distance": "3.2 mi from venue",
+    "reason": "Handmade pasta and wood-fired dishes with a family-style format that encourages sharing."
+  }
+]

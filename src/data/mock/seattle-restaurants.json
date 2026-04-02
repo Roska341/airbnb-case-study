@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Canlis",
+    "cuisine": "Pacific Northwest Fine Dining",
+    "rating": 4.9,
+    "price": "$$$$",
+    "dietary": ["vegetarian options", "vegan options", "gluten-free options"],
+    "distance": "2.0 mi from venue",
+    "reason": "Seattle's most celebrated restaurant with private dining rooms and stunning lake views — perfect for milestone celebrations."
+  },
+  {
+    "name": "Pike Place Chowder",
+    "cuisine": "Seafood/Chowder",
+    "rating": 4.7,
+    "price": "$",
+    "dietary": ["gluten-free options"],
+    "distance": "0.3 mi from venue",
+    "reason": "Award-winning chowder in Pike Place Market — casual, quick, and a quintessential Seattle experience."
+  },
+  {
+    "name": "Stateside",
+    "cuisine": "Vietnamese-French",
+    "rating": 4.6,
+    "price": "$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "0.8 mi from venue",
+    "reason": "Creative fusion cuisine with shareable plates and a hip Capitol Hill atmosphere great for group dining."
+  },
+  {
+    "name": "The Walrus and the Carpenter",
+    "cuisine": "Oyster Bar / Seafood",
+    "rating": 4.7,
+    "price": "$$$",
+    "dietary": ["gluten-free options", "pescatarian"],
+    "distance": "1.5 mi from venue",
+    "reason": "Intimate oyster bar in Ballard with communal seating that naturally brings teams together over shared platters."
+  },
+  {
+    "name": "Din Tai Fung",
+    "cuisine": "Taiwanese Dumplings",
+    "rating": 4.6,
+    "price": "$$",
+    "dietary": ["vegetarian options"],
+    "distance": "0.5 mi from venue",
+    "reason": "World-famous soup dumplings with large group tables — a fun shared eating experience everyone enjoys."
+  },
+  {
+    "name": "Salumi Artisan Cured Meats",
+    "cuisine": "Italian Deli",
+    "rating": 4.8,
+    "price": "$$",
+    "dietary": ["gluten-free options"],
+    "distance": "0.4 mi from venue",
+    "reason": "Legendary Pioneer Square deli with handcrafted sandwiches — perfect for a quick team lunch between sessions."
+  },
+  {
+    "name": "Japonessa",
+    "cuisine": "Japanese Sushi",
+    "rating": 4.5,
+    "price": "$$$",
+    "dietary": ["gluten-free options", "pescatarian"],
+    "distance": "0.6 mi from venue",
+    "reason": "Upscale sushi with creative rolls and a sleek atmosphere — great for an elevated team dinner."
+  },
+  {
+    "name": "Cafe Campagne",
+    "cuisine": "French Bistro",
+    "rating": 4.6,
+    "price": "$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "0.3 mi from venue",
+    "reason": "Charming Pike Place bistro with prix fixe options that simplify group ordering and pacing."
+  },
+  {
+    "name": "Paseo",
+    "cuisine": "Caribbean Sandwiches",
+    "rating": 4.7,
+    "price": "$",
+    "dietary": ["gluten-free options"],
+    "distance": "2.5 mi from venue",
+    "reason": "Cult-favorite Caribbean sandwiches in Fremont — worth the trip for an unforgettable casual team lunch."
+  },
+  {
+    "name": "Bateau",
+    "cuisine": "Whole Animal / American",
+    "rating": 4.6,
+    "price": "$$$",
+    "dietary": ["gluten-free options"],
+    "distance": "1.0 mi from venue",
+    "reason": "Farm-to-table whole animal dining with a communal chalkboard menu — creates a unique shared experience."
+  },
+  {
+    "name": "Revel",
+    "cuisine": "Korean Fusion",
+    "rating": 4.5,
+    "price": "$$",
+    "dietary": ["vegetarian options", "vegan options"],
+    "distance": "2.2 mi from venue",
+    "reason": "Bold Korean-inspired shareable plates in Fremont — family-style service encourages team conversation."
+  },
+  {
+    "name": "Storyville Coffee",
+    "cuisine": "Cafe/Breakfast",
+    "rating": 4.4,
+    "price": "$",
+    "dietary": ["vegetarian options", "vegan options", "gluten-free options"],
+    "distance": "0.2 mi from venue",
+    "reason": "Premium coffee with a cozy lounge space at Pike Place — ideal morning meeting spot with great pastries."
+  },
+  {
+    "name": "Omega Ouzeri",
+    "cuisine": "Greek Mediterranean",
+    "rating": 4.5,
+    "price": "$$",
+    "dietary": ["vegetarian options", "vegan options", "gluten-free options"],
+    "distance": "0.7 mi from venue",
+    "reason": "Mezze-style shared plates encourage communal eating and trying new things together."
+  },
+  {
+    "name": "Tavolata",
+    "cuisine": "Italian",
+    "rating": 4.6,
+    "price": "$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "1.1 mi from venue",
+    "reason": "Rustic Italian with long communal tables and family-style pasta — designed for group dining."
+  },
+  {
+    "name": "Matt's in the Market",
+    "cuisine": "Pacific Northwest Seafood",
+    "rating": 4.7,
+    "price": "$$$",
+    "dietary": ["vegetarian options", "gluten-free options", "pescatarian"],
+    "distance": "0.3 mi from venue",
+    "reason": "Pike Place gem with market-fresh ingredients and views — intimate enough for meaningful team conversations."
+  }
+]

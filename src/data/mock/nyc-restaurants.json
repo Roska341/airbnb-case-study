@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Carbone",
+    "cuisine": "Italian-American",
+    "rating": 4.8,
+    "price": "$$$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "1.2 mi from venue",
+    "reason": "Iconic red-sauce Italian with impeccable service and a theatrical atmosphere that makes any team dinner feel special."
+  },
+  {
+    "name": "Xi'an Famous Foods",
+    "cuisine": "Chinese Noodles",
+    "rating": 4.6,
+    "price": "$",
+    "dietary": ["vegetarian options"],
+    "distance": "0.5 mi from venue",
+    "reason": "Hand-pulled noodles and bold flavors in a casual setting — perfect for a quick, affordable team lunch."
+  },
+  {
+    "name": "Le Bernardin",
+    "cuisine": "French Seafood",
+    "rating": 4.9,
+    "price": "$$$$",
+    "dietary": ["gluten-free options", "pescatarian"],
+    "distance": "0.8 mi from venue",
+    "reason": "Three-Michelin-star seafood for a memorable celebration dinner with private dining available."
+  },
+  {
+    "name": "Los Tacos No. 1",
+    "cuisine": "Mexican",
+    "rating": 4.7,
+    "price": "$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "0.3 mi from venue",
+    "reason": "Authentic tacos in Chelsea Market — fast, delicious, and no reservations needed for group grab-and-go."
+  },
+  {
+    "name": "Russ & Daughters Cafe",
+    "cuisine": "Jewish Deli",
+    "rating": 4.7,
+    "price": "$$",
+    "dietary": ["vegetarian options", "kosher options"],
+    "distance": "1.5 mi from venue",
+    "reason": "Iconic NYC deli experience with communal tables and classic brunch that feels quintessentially New York."
+  },
+  {
+    "name": "Thai Diner",
+    "cuisine": "Thai-American",
+    "rating": 4.5,
+    "price": "$$",
+    "dietary": ["vegetarian options", "vegan options", "gluten-free options"],
+    "distance": "1.0 mi from venue",
+    "reason": "Creative Thai comfort food with shareable plates and a fun retro diner vibe perfect for team bonding."
+  },
+  {
+    "name": "Shake Shack — Madison Square Park",
+    "cuisine": "American Burgers",
+    "rating": 4.4,
+    "price": "$",
+    "dietary": ["vegetarian options"],
+    "distance": "0.4 mi from venue",
+    "reason": "Casual outdoor dining in the park — low-key and easy for groups of any size to grab a quick meal."
+  },
+  {
+    "name": "Gramercy Tavern",
+    "cuisine": "New American",
+    "rating": 4.7,
+    "price": "$$$",
+    "dietary": ["vegetarian options", "vegan options", "gluten-free options"],
+    "distance": "0.6 mi from venue",
+    "reason": "Elegant farm-to-table dining with private rooms available for team dinners and a warm, welcoming atmosphere."
+  },
+  {
+    "name": "Momofuku Noodle Bar",
+    "cuisine": "Asian Fusion",
+    "rating": 4.5,
+    "price": "$$",
+    "dietary": ["vegetarian options"],
+    "distance": "1.3 mi from venue",
+    "reason": "David Chang's legendary noodle spot with a communal vibe and bold flavors that spark conversation."
+  },
+  {
+    "name": "Joe's Pizza",
+    "cuisine": "New York Pizza",
+    "rating": 4.6,
+    "price": "$",
+    "dietary": ["vegetarian options"],
+    "distance": "0.7 mi from venue",
+    "reason": "The quintessential NYC slice — a must-do team experience for anyone visiting New York."
+  },
+  {
+    "name": "Olmsted",
+    "cuisine": "New American",
+    "rating": 4.8,
+    "price": "$$$",
+    "dietary": ["vegetarian options", "vegan options", "gluten-free options"],
+    "distance": "3.0 mi from venue",
+    "reason": "Garden-to-table dining in Prospect Heights with a beautiful backyard garden — intimate and memorable."
+  },
+  {
+    "name": "Estela",
+    "cuisine": "Mediterranean",
+    "rating": 4.6,
+    "price": "$$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "1.1 mi from venue",
+    "reason": "Small plates meant for sharing, encouraging collaborative dining and trying new flavors together."
+  },
+  {
+    "name": "Atoboy",
+    "cuisine": "Korean",
+    "rating": 4.7,
+    "price": "$$$",
+    "dietary": ["vegetarian options", "gluten-free options"],
+    "distance": "0.9 mi from venue",
+    "reason": "Modern Korean prix fixe with a choose-your-own-adventure format that makes ordering a fun group activity."
+  },
+  {
+    "name": "Daily Provisions",
+    "cuisine": "Cafe/Bakery",
+    "rating": 4.5,
+    "price": "$",
+    "dietary": ["vegetarian options", "vegan options"],
+    "distance": "0.4 mi from venue",
+    "reason": "Danny Meyer's breakfast spot with excellent coffee and pastries — ideal for morning team meetups."
+  },
+  {
+    "name": "Sushi Nakazawa",
+    "cuisine": "Japanese Sushi",
+    "rating": 4.8,
+    "price": "$$$$",
+    "dietary": ["gluten-free options", "pescatarian"],
+    "distance": "1.4 mi from venue",
+    "reason": "Omakase experience that creates a shared sense of occasion — perfect for celebrating a team milestone."
+  }
+]
