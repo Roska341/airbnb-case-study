@@ -638,7 +638,6 @@ export default function AgendaBuilderPage() {
               onAddBlock={handleAddBlock}
               onEditBlock={handleEditBlock}
               isLoadingVariants={isGenerating}
-              qualityInfo={qualityInfo}
             />
           )}
         </motion.div>

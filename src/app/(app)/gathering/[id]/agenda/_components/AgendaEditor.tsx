@@ -44,13 +44,6 @@ interface AgendaState {
   days: AgendaDay[];
 }
 
-interface QualityInfo {
-  overallScore: number;
-  scores: Record<string, number>;
-  summary: string;
-  refinements: number;
-}
-
 interface AgendaEditorProps {
   gatheringId: string;
   agenda: AgendaState;
@@ -76,7 +69,6 @@ interface AgendaEditorProps {
     description?: string;
   }) => Promise<void>;
   isLoadingVariants: boolean;
-  qualityInfo?: QualityInfo | null;
 }
 
 const blockTypes = [
@@ -120,11 +112,9 @@ export function AgendaEditor({
   onAddBlock,
   onEditBlock,
   isLoadingVariants,
-  qualityInfo,
 }: AgendaEditorProps) {
   const [activeDay, setActiveDay] = useState(agenda.days[0]?.day ?? 1);
   const [showAddBlock, setShowAddBlock] = useState(false);
-  const [showReview, setShowReview] = useState(false);
   const [isAddingBlock, setIsAddingBlock] = useState(false);
   const [newBlock, setNewBlock] = useState({
     title: '',
@@ -223,31 +213,6 @@ export function AgendaEditor({
           <p className="text-foggy">
             Editing {agenda.variant} agenda
           </p>
-          {qualityInfo && (
-            <div className="flex items-center gap-3 mt-2">
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-sm font-bold ${
-                qualityInfo.overallScore >= 8
-                  ? 'bg-green-100 text-green-700'
-                  : qualityInfo.overallScore >= 6
-                    ? 'bg-yellow-100 text-yellow-700'
-                    : 'bg-red-100 text-red-700'
-              }`}>
-                <Sparkles size={14} />
-                Quality: {qualityInfo.overallScore.toFixed(1)}/10
-              </span>
-              {qualityInfo.refinements > 0 && (
-                <span className="text-xs text-foggy">
-                  ({qualityInfo.refinements} refinement{qualityInfo.refinements !== 1 ? 's' : ''})
-                </span>
-              )}
-              <button
-                className="text-xs text-babu hover:text-kazan underline"
-                onClick={() => setShowReview(!showReview)}
-              >
-                {showReview ? 'Hide review' : 'Show review'}
-              </button>
-            </div>
-          )}
         </div>
         <div className="flex gap-3">
           <Button
@@ -269,33 +234,6 @@ export function AgendaEditor({
         </div>
       </div>
 
-      {showReview && qualityInfo && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          className="bg-bg-gray border border-light-gray rounded-card p-6 space-y-4"
-        >
-          <h3 className="text-sm font-bold text-kazan uppercase tracking-wider">
-            AI Quality Review
-          </h3>
-          <p className="text-foggy text-sm">{qualityInfo.summary}</p>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
-            {Object.entries(qualityInfo.scores).map(([key, score]) => (
-              <div key={key} className="text-center">
-                <div className={`text-lg font-bold ${
-                  score >= 8 ? 'text-green-600' : score >= 6 ? 'text-yellow-600' : 'text-red-600'
-                }`}>
-                  {score}
-                </div>
-                <div className="text-[10px] text-foggy uppercase tracking-wider">
-                  {key.replace(/([A-Z])/g, ' $1').trim()}
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      )}
 
       <div className="flex border-b border-light-gray overflow-x-auto">
         {agenda.days.map((d) => (
