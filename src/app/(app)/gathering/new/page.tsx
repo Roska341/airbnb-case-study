@@ -160,11 +160,11 @@ function LocationPicker({ value, onChange }: { value: string; onChange: (v: stri
 }
 
 const contextLabels: Record<string, string> = {
-  new: 'New team',
-  cross_functional: 'Cross-functional',
-  post_reorg: 'Post-reorg',
-  established: 'Established team',
-  other: 'Other',
+  engineering: 'Engineering',
+  marketing: 'Marketing',
+  legal: 'Legal',
+  design: 'Design',
+  multi_department: 'Multi-department',
 };
 
 export default function CreateGatheringPage() {
@@ -286,18 +286,18 @@ export default function CreateGatheringPage() {
         <p className="text-xs text-foggy text-right">{formData.purpose.length}/{MAX_TEXT_LENGTH}</p>
 
         <div className="flex flex-col gap-1.5 w-full">
-          <label className="text-xs font-bold text-foggy uppercase tracking-wider">Team Context</label>
+          <label className="text-xs font-bold text-foggy uppercase tracking-wider">Department</label>
           <select
             className="flex h-12 w-full rounded-btn border border-light-gray bg-white px-4 py-3 text-base text-kazan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kazan"
             value={formData.context}
             onChange={(e) => setFormData({ ...formData, context: e.target.value })}
           >
-            <option value="">Select context...</option>
-            <option value="new">New team</option>
-            <option value="cross_functional">Cross-functional</option>
-            <option value="post_reorg">Post-reorg</option>
-            <option value="established">Established team</option>
-            <option value="other">Other</option>
+            <option value="">Select department...</option>
+            <option value="engineering">Engineering</option>
+            <option value="marketing">Marketing</option>
+            <option value="legal">Legal</option>
+            <option value="design">Design</option>
+            <option value="multi_department">Multi-department</option>
           </select>
         </div>
       </div>
