@@ -15,9 +15,6 @@ Built as an interview case study prototype.
 | UI | React 19, Tailwind CSS 4 |
 | Database | SQLite via Prisma ORM + LibSQL adapter |
 | AI | Anthropic Claude SDK (multi-specialist orchestration) |
-| Auth | NextAuth v5 (credentials provider) |
-| Animations | Motion (Framer Motion) |
-| Icons | Lucide React |
 
 ## Features
 
@@ -154,6 +151,6 @@ City data is available for: **Austin, San Francisco, New York, Seattle**.
 
 ## Notes
 
-- This is a **prototype** built for an interview case study. Auth uses a credentials provider (email-only, no password) for easy demo access.
+- This is a **prototype**. Auth uses a credentials provider (email-only, no password) for easy demo access.
 - AI features require a valid `ANTHROPIC_API_KEY`. Without it, the agenda builder falls back to pre-built mock agendas.
-- The database is SQLite (file-based) -- no external database server needed.
+- The database is SQLite (file-based) no external database server needed.
