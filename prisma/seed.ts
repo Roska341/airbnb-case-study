@@ -506,6 +506,41 @@ async function main() {
 
   console.log(`  Created ${agendaBlocks.length} agenda blocks`);
 
+  // ── Registration Questions for Gathering 1 ─────────────────────────────
+  console.log('Creating registration questions...');
+
+  const defaultQuestions = [
+    { gatheringId: '1', label: 'Dietary Restrictions', type: 'multiple_choice', options: JSON.stringify(['Vegetarian', 'Vegan', 'Gluten-Free', 'Nut Allergy', 'Dairy-Free', 'Halal', 'Kosher', 'None', 'Other']), required: true, visible: true, isDefault: true, sortOrder: 1 },
+    { gatheringId: '1', label: 'T-Shirt Size', type: 'multiple_choice', options: JSON.stringify(['XS', 'S', 'M', 'L', 'XL', 'XXL']), required: true, visible: true, isDefault: true, sortOrder: 2 },
+    { gatheringId: '1', label: 'Travel Origin City', type: 'text', options: null, required: true, visible: true, isDefault: true, sortOrder: 3 },
+    { gatheringId: '1', label: 'Need Lodging?', type: 'multiple_choice', options: JSON.stringify(['Yes', 'No']), required: true, visible: true, isDefault: true, sortOrder: 4 },
+    { gatheringId: '1', label: 'Additional Notes / Accessibility Needs', type: 'text', options: null, required: false, visible: true, isDefault: true, sortOrder: 5 },
+  ];
+
+  for (const q of defaultQuestions) {
+    await prisma.registrationQuestion.create({ data: q });
+  }
+
+  console.log(`  Created ${defaultQuestions.length} registration questions`);
+
+  // ── Equipment Items for Gathering 1 ───────────────────────────────────
+  console.log('Creating equipment items...');
+
+  const equipmentItems = [
+    { gatheringId: '1', category: 'av_tech', name: 'Portable Projector', quantity: 2, unitCost: 75, priority: 'essential', status: 'confirmed', sortOrder: 0 },
+    { gatheringId: '1', category: 'av_tech', name: 'Wireless Microphone', quantity: 3, unitCost: 35, priority: 'essential', status: 'ordered', sortOrder: 1 },
+    { gatheringId: '1', category: 'av_tech', name: 'HDMI Adapters (USB-C)', quantity: 5, unitCost: 15, priority: 'recommended', status: 'confirmed', sortOrder: 2 },
+    { gatheringId: '1', category: 'furniture', name: 'Folding Whiteboard', quantity: 3, unitCost: 45, priority: 'essential', status: 'ordered', sortOrder: 3 },
+    { gatheringId: '1', category: 'supplies', name: 'Sticky Notes (pack of 12)', quantity: 4, unitCost: 12, priority: 'recommended', status: 'needed', sortOrder: 4 },
+    { gatheringId: '1', category: 'supplies', name: 'Markers (assorted colors)', quantity: 6, unitCost: 8, priority: 'recommended', status: 'needed', sortOrder: 5 },
+  ];
+
+  for (const item of equipmentItems) {
+    await prisma.equipmentItem.create({ data: item });
+  }
+
+  console.log(`  Created ${equipmentItems.length} equipment items`);
+
   console.log('\nSeeding complete!');
 }
 
