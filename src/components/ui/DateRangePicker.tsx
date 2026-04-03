@@ -16,7 +16,7 @@ export interface DateRangePickerProps {
 
 export function DateRangePicker({ startDate, endDate, onChange, className }: DateRangePickerProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentMonth, setCurrentMonth] = useState(startOfMonth(new Date()));
+  const [currentMonth, setCurrentMonth] = useState(() => startOfMonth(new Date()));
   const [hoverDate, setHoverDate] = useState<Date | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 

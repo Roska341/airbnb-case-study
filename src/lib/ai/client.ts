@@ -20,3 +20,18 @@ export const anthropic =
 if (process.env.NODE_ENV !== 'production') {
   globalForAnthropic.anthropic = anthropic;
 }
+
+/**
+ * Sanitize user-provided text before interpolating into AI prompts.
+ * Truncates to a safe length and strips patterns that could be used
+ * for prompt injection (instruction overrides, role-play attempts).
+ */
+export function sanitizePromptInput(input: string, maxLength = 500): string {
+  return input
+    .slice(0, maxLength)
+    .replace(/ignore\s+(all\s+)?(previous|above|prior)\s+(instructions|rules|prompts)/gi, '[removed]')
+    .replace(/you\s+are\s+now/gi, '[removed]')
+    .replace(/system\s*:/gi, '[removed]')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}

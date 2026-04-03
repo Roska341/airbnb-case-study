@@ -47,8 +47,12 @@ export async function POST(request: Request) {
     });
   }
 
+  // Registration data is optional — agendas are typically built before
+  // attendees register, so dietary info may not be available yet.
   const stats = await getRegistrationStats(gatheringId);
-  const dietarySummary = buildDietarySummary(stats.dietaryBreakdown);
+  const dietarySummary = stats.total > 0
+    ? buildDietarySummary(stats.dietaryBreakdown)
+    : undefined;
 
   const startDate = new Date(gathering.startDate);
   const endDate = new Date(gathering.endDate);
@@ -77,6 +81,7 @@ export async function POST(request: Request) {
     location: gathering.location,
     dietarySummary,
     venueAddress,
+    registrantCount: stats.total,
   };
 
   const encoder = new TextEncoder();
@@ -89,6 +94,7 @@ export async function POST(request: Request) {
         }
       } catch (err) {
         const message = err instanceof Error ? err.message : 'Unknown error';
+        console.error('[AI Agenda Generate] Error:', err);
         const errorEvent = { phase: 'error', step: 'Generation failed', message };
         controller.enqueue(encoder.encode(`data: ${JSON.stringify(errorEvent)}\n\n`));
       } finally {

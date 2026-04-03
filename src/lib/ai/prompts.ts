@@ -24,7 +24,7 @@ Rules:
 - Base activity suggestions on the provided dataset only — do not invent activities
 - Consider dietary restrictions when recommending restaurants
 - Ensure a mix of high-energy and low-energy activities for accessibility
-- Keep icebreakers psychologically safe — no forced vulnerability or embarrassment
+- Keep icebreakers strictly professional and psychologically safe — no personal disclosure games (e.g. "Two truths and a lie", "Never have I ever"), no forced vulnerability or embarrassment. Use only work-appropriate formats like quick team trivia, word associations, or collaborative problem-solving exercises
 - Avoid alcohol-centric activities as defaults
 - Use the provided configuration preferences to guide restaurant, activity, and schedule choices
 - When hotel proximity is specified, strongly prefer venues within walking distance`;
@@ -99,15 +99,14 @@ export const tools: Tool[] = [
                     start_time: { type: 'string', description: 'Start time, e.g. "9:00 AM"' },
                     end_time: { type: 'string', description: 'End time, e.g. "10:00 AM"' },
                     title: { type: 'string', description: 'Block title' },
-                    description: { type: 'string', description: 'Brief description of the block' },
+                    description: { type: 'string', description: 'Concrete 1-sentence description of what happens' },
                     type: {
                       type: 'string',
                       enum: ['icebreaker', 'work_session', 'meal', 'activity', 'free_time', 'travel'],
-                      description: 'Block type category',
                     },
                     restaurant: {
                       type: 'object',
-                      description: 'Restaurant details for meal blocks (must be from the provided dataset)',
+                      description: 'Restaurant for meal blocks (from dataset)',
                       properties: {
                         name: { type: 'string' },
                         cuisine: { type: 'string' },
@@ -133,7 +132,7 @@ export const tools: Tool[] = [
                       required: ['name', 'venue', 'duration', 'capacity', 'type', 'reason'],
                     },
                   },
-                  required: ['start_time', 'end_time', 'title', 'type'],
+                  required: ['start_time', 'end_time', 'title', 'description', 'type'],
                 },
               },
             },
@@ -155,15 +154,14 @@ export const tools: Tool[] = [
         start_time: { type: 'string', description: 'Start time, e.g. "12:00 PM"' },
         end_time: { type: 'string', description: 'End time, e.g. "1:30 PM"' },
         title: { type: 'string', description: 'Block title' },
-        description: { type: 'string', description: 'Brief description of the block' },
+        description: { type: 'string', description: 'Concrete 1-sentence description of what happens' },
         type: {
           type: 'string',
           enum: ['icebreaker', 'work_session', 'meal', 'activity', 'free_time', 'travel'],
-          description: 'Block type category',
         },
         restaurant: {
           type: 'object',
-          description: 'Restaurant details for meal blocks (must be from the provided dataset)',
+          description: 'Restaurant for meal blocks (from dataset)',
           properties: {
             name: { type: 'string' },
             cuisine: { type: 'string' },
@@ -189,90 +187,64 @@ export const tools: Tool[] = [
           required: ['name', 'venue', 'duration', 'capacity', 'type', 'reason'],
         },
       },
-      required: ['start_time', 'end_time', 'title', 'type'],
+      required: ['start_time', 'end_time', 'title', 'description', 'type'],
     },
   },
 ];
 
 // ── Specialist System Prompts ───────────────────────────────────
 
-export const RESTAURANT_CURATOR_PROMPT = `You are an expert restaurant curator for corporate team gatherings at Airbnb.
+export const RESTAURANT_CURATOR_PROMPT = `You are a restaurant curator for corporate team gatherings at Airbnb.
 
-Your job is to select and rank restaurants for each meal slot across a multi-day gathering.
-
-Rules:
-- Return responses ONLY through the provided tool/function calls
-- Select ONLY from the provided restaurant dataset — do not invent venues
-- Assign exactly one restaurant per meal slot (breakfast, lunch, dinner per day)
-- CRITICAL DIETARY RULE: For EVERY restaurant you select, cross-check its dietary array against ALL reported dietary needs. If the team has "vegetarian" needs, the restaurant MUST list "vegetarian options" in its dietary array. If a restaurant cannot cover all dietary needs, do NOT select it — pick one that can. If no restaurant covers all needs for a slot, pick the best available and report the gap in dietaryGaps.
-- Consider group size — prefer restaurants with communal seating or private dining for large groups
-- Vary cuisines across meals — avoid repeating the same cuisine type on the same day
-- Vary price points — mix casual and upscale based on configuration preferences
-- When hotel proximity is enabled, prefer restaurants within 1.5 miles
-- Explain WHY each restaurant was selected for its specific slot`;
-
-export const ACTIVITY_PLANNER_PROMPT = `You are a team activity specialist for corporate gatherings at Airbnb.
-
-Your job is to select activities that match the gathering's approach, energy level, group size, and purpose.
+Select and rank restaurants for each meal slot. One restaurant per slot.
 
 Rules:
 - Return responses ONLY through the provided tool/function calls
-- Select ONLY from the provided activity dataset — do not invent activities
-- Ensure all activities can accommodate the group size
-- Balance high and low energy activities for accessibility
-- Suggest appropriate times of day (e.g., outdoor activities in the morning/afternoon, not late evening)
-- Consider the gathering purpose — team bonding needs interactive activities, strategy needs quieter options
-- Explain WHY each activity fits this specific gathering`;
+- Select ONLY from the provided dataset — do not invent venues
+- Cross-check each restaurant's dietary array against reported needs. If a restaurant can't cover all needs, report gaps in dietaryGaps
+- If no dietary needs are reported, leave dietaryCoverage and dietaryGaps as empty arrays — don't invent restrictions
+- Vary cuisines across meals on the same day
+- When hotel proximity is enabled, prefer restaurants within 1.5 miles`;
 
-export const SCHEDULE_ARCHITECT_PROMPT = `You are a schedule design expert for corporate team gatherings at Airbnb.
+export const ACTIVITY_PLANNER_PROMPT = `You are an activity planner for corporate team gatherings at Airbnb.
 
-You receive pre-selected restaurants and activities. Your job is to place them into optimal time slots and fill gaps with work sessions, icebreakers, free time, and travel blocks.
-
-BASE VENUE CONCEPT:
-- The gathering has a base venue (hotel, office, or event space) where most blocks happen
-- Work sessions, icebreakers, and free time happen AT the base venue — no travel needed between these
-- Only restaurants and off-site activities require travel blocks
-- When a block ends at the base venue and the next starts there too, NO travel block is needed
-- Add a 15-min travel block ONLY when transitioning between the base venue and an off-site location
-- Add a 10-15 min cooldown/transition buffer after high-energy activities or long off-site excursions before the next session
-
-WORK/SOCIAL RATIO ENFORCEMENT:
-- You MUST hit the specified work/social ratio. Count total hours.
-- "work" = work_session blocks. "social" = icebreaker + activity + meal + free_time blocks.
-- For 60/40: if the day has 10 scheduled hours, ~6 hours must be work_session blocks.
-- For 80/20: ~8 hours work_session per 10 scheduled hours.
-- For 20/80: ~2 hours work_session per 10 scheduled hours.
-- After building the schedule, mentally verify the ratio. If it's off by more than 10%, adjust.
+Select activities matching the gathering's approach, energy level, group size, and purpose.
 
 Rules:
 - Return responses ONLY through the provided tool/function calls
-- Do NOT choose new restaurants or activities — only use the pre-selected ones provided
-- Place restaurants in their assigned meal slots (match mealSlot field)
-- Place activities at their suggested times of day when possible
-- Ensure time blocks have realistic durations: meals 60-90 min, work sessions 90-180 min, icebreakers 20-45 min, travel 15-30 min
-- Ensure adequate transition time between blocks — no back-to-back blocks at different locations without travel
-- Ensure no time overlaps and no impossibly short gaps (< 15 min)
-- Day 1 should start in the afternoon (arrival day) unless duration is 1 day
-- Honor schedule preferences (start time, end time, include breakfast)
-- Include restaurant and activity objects exactly as provided in the pre-selected data`;
+- Select ONLY from the provided dataset — do not invent activities
+- Ensure activities accommodate the group size
+- Balance high and low energy
+- Suggest appropriate times of day`;
 
-export const QUALITY_REVIEWER_PROMPT = `You are an adversarial quality auditor for corporate gathering agendas at Airbnb.
+export const SCHEDULE_ARCHITECT_PROMPT = `You are a schedule architect for corporate team gatherings at Airbnb.
 
-Your job is to find problems, not to be generous. Score the agenda against 6 criteria and be specific about what's wrong and how to fix it.
+You receive pre-selected restaurants and activities. Place them into time slots and fill gaps with work sessions, icebreakers, free time, and travel blocks.
 
-Scoring criteria (1-10 each):
-1. Dietary Coverage: Does every meal have options for all reported dietary restrictions?
-2. Schedule Validity: Are there any time overlaps, unrealistic gaps, or impossible transitions?
-3. Approach Ratio: Does the work/social balance match the selected approach?
-4. Variety: Are restaurant cuisines, activity types, and block types sufficiently varied?
-5. Inclusivity: Are all activities accessible? Are there non-alcohol defaults? Are icebreakers psychologically safe?
-6. Logistics: Are travel times between venues realistic? Are venues open at scheduled times?
+DESCRIPTIONS: Every block needs a concrete "description" (1 sentence, under 30 words). Name the specific exercise/format and how it works. No generic labels. Keep icebreakers strictly professional and psychologically safe — no personal disclosure games (e.g. "Two truths and a lie", "Never have I ever"). Use only work-appropriate formats. Don't invent venue details or vendor names.
+
+TRAVEL: Work sessions, icebreakers, and free time happen at the base venue (no travel). Add 15-min travel blocks ONLY for off-site restaurants/activities.
+
+RATIO: Hit the specified work/social ratio. work = work_session. social = icebreaker + activity + meal + free_time. Verify before finalizing.
 
 Rules:
 - Return responses ONLY through the provided tool/function calls
-- Be specific about issues — "Day 2 dinner has no vegetarian option" not "dietary coverage could be better"
-- Pass threshold: ALL six scores must be >= 7
-- If any score is below 7, set passed to false and list specific issues to fix`;
+- Use ONLY the pre-selected restaurants and activities provided
+- Place restaurants in their assigned meal slots, activities at suggested times
+- Realistic durations: meals 60-90 min, work 90-180 min, icebreakers 20-45 min
+- No time overlaps or gaps < 15 min
+- Day 1 starts at the configured start time
+- Honor schedule preferences (start/end time, breakfast)
+- Include restaurant/activity objects exactly as provided`;
+
+export const QUALITY_REVIEWER_PROMPT = `You are a quality auditor for corporate gathering agendas at Airbnb. Score harshly.
+
+Criteria (1-10): 1) Dietary Coverage (auto 10 if none reported), 2) Schedule Validity (overlaps, gaps, transitions), 3) Approach Ratio (work/social match), 4) Variety (cuisines, activities, block types), 5) Inclusivity (accessibility, no alcohol defaults, safe icebreakers — flag any personal-disclosure games like "Two truths and a lie"), 6) Logistics (travel times, venue hours).
+
+Rules:
+- Return responses ONLY through the provided tool/function calls
+- Be specific about issues
+- Pass: ALL scores >= 7. Otherwise passed=false with specific issues`;
 
 // ── Specialist Tool Schemas ─────────────────────────────────────
 
@@ -364,25 +336,25 @@ export const specialistTools: Record<string, Tool> = {
 
   build_agenda: {
     name: 'build_agenda',
-    description: 'Build a complete multi-day gathering agenda by placing pre-selected restaurants and activities into optimal time slots and filling gaps with work sessions, icebreakers, free time, and travel blocks.',
+    description: 'Build a multi-day gathering agenda with time blocks.',
     input_schema: {
       type: 'object' as const,
       properties: {
-        variant_name: { type: 'string', description: 'Name of the agenda variant' },
-        variant_description: { type: 'string', description: 'Short description of this variant' },
+        variant_name: { type: 'string' },
+        variant_description: { type: 'string' },
         days: {
           type: 'array',
           items: {
             type: 'object',
             properties: {
-              day_number: { type: 'integer', description: 'Day number starting from 1' },
+              day_number: { type: 'integer' },
               blocks: {
                 type: 'array',
                 items: {
                   type: 'object',
                   properties: {
-                    start_time: { type: 'string', description: 'e.g. "9:00 AM"' },
-                    end_time: { type: 'string', description: 'e.g. "10:00 AM"' },
+                    start_time: { type: 'string' },
+                    end_time: { type: 'string' },
                     title: { type: 'string' },
                     description: { type: 'string' },
                     type: {
@@ -415,7 +387,7 @@ export const specialistTools: Record<string, Tool> = {
                       required: ['name', 'venue', 'duration', 'capacity', 'type', 'reason'],
                     },
                   },
-                  required: ['start_time', 'end_time', 'title', 'type'],
+                  required: ['start_time', 'end_time', 'title', 'description', 'type'],
                 },
               },
             },

@@ -98,6 +98,11 @@ export default function DashboardPage() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const fetchGatherings = useCallback(async () => {
     try {
@@ -282,7 +287,7 @@ export default function DashboardPage() {
           </div>
         ) : (
           filteredGatherings.map((g) => {
-            const daysUntil = getDaysUntil(g.dates);
+            const daysUntil = isClient ? getDaysUntil(g.dates) : '';
             return (
               <motion.div
                 key={g.id}

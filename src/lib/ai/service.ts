@@ -13,7 +13,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { anthropic } from './client';
+import { anthropic, sanitizePromptInput } from './client';
 import { SYSTEM_PROMPT, tools } from './prompts';
 import type { Message } from '@anthropic-ai/sdk/resources/messages';
 import type {
@@ -134,11 +134,14 @@ function extractToolInput<T>(
 export async function getRecommendations(
   context: GatheringContext,
 ): Promise<Recommendation> {
+  const safePurpose = context.purpose ? sanitizePromptInput(context.purpose) : undefined;
+  const safeTeamContext = context.teamContext ? sanitizePromptInput(context.teamContext) : undefined;
+
   const userPrompt = `Generate gathering recommendations for the following:
 
 Gathering type: ${context.type}
-${context.purpose ? `Purpose: ${context.purpose}` : ''}
-${context.teamContext ? `Team context: ${context.teamContext}` : ''}
+${safePurpose ? `Purpose: ${safePurpose}` : ''}
+${safeTeamContext ? `Team context: ${safeTeamContext}` : ''}
 Group size: ${context.groupSize} people
 Duration: ${context.duration} day${context.duration !== 1 ? 's' : ''}
 Location: ${context.location}
@@ -194,10 +197,12 @@ export async function suggestBlock(
   restaurants: RestaurantData[],
   activities: ActivityData[],
 ): Promise<AgendaBlockSuggestion> {
+  const safePurpose = context.purpose ? sanitizePromptInput(context.purpose) : undefined;
+
   const userPrompt = `Suggest a single agenda block for this time slot:
 
 Gathering type: ${context.gatheringType}
-${context.purpose ? `Purpose: ${context.purpose}` : ''}
+${safePurpose ? `Purpose: ${safePurpose}` : ''}
 Location: ${context.location}
 Group size: ${context.groupSize} people
 Time slot: ${context.timeSlot}
@@ -209,7 +214,8 @@ ${context.blockType === 'activity' ? `AVAILABLE ACTIVITIES (select ONLY from thi
 
 Generate a single block suggestion. Set start_time and end_time to match the time slot "${context.timeSlot}".
 ${context.blockType === 'meal' ? 'Include a restaurant object from the provided list.' : ''}
-${context.blockType === 'activity' ? 'Include an activity object from the provided list.' : ''}`;
+${context.blockType === 'activity' ? 'Include an activity object from the provided list.' : ''}
+IMPORTANT: Include a "description" (2-3 sentences, under 50 words) naming the specific activity/exercise and briefly explaining how it works. Tailor to a ${context.gatheringType} gathering${safePurpose ? ` focused on "${safePurpose}"` : ''}.`;
 
   const response = await anthropic.messages.create({
     model: MODEL,

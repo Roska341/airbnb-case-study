@@ -26,9 +26,9 @@ export async function qualityReviewer(
   const approach = getApproachById(config.approachId);
 
   const agendaSummary = agenda.days.map((day) => {
-    const blocks = day.blocks.map((b) => {
+    const blocks = (day.blocks ?? []).map((b) => {
       let detail = `  ${b.startTime}-${b.endTime}: ${b.title} [${b.type}]`;
-      if (b.restaurant) detail += ` — Restaurant: ${b.restaurant.name} (${b.restaurant.cuisine}, dietary: ${b.restaurant.dietary.join(', ')})`;
+      if (b.restaurant) detail += ` — Restaurant: ${b.restaurant.name} (${b.restaurant.cuisine}, dietary: ${(b.restaurant.dietary ?? []).join(', ')})`;
       if (b.activity) detail += ` — Activity: ${b.activity.name} at ${b.activity.venue}`;
       return detail;
     }).join('\n');

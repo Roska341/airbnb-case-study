@@ -326,7 +326,7 @@ export default function AgendaBuilderPage() {
 
   const saveAndSetAgenda = async (variant: ApiVariant) => {
     const blocks = variant.days.flatMap((d) =>
-      d.blocks.map((b, idx) => ({
+      (d.blocks ?? []).map((b, idx) => ({
         day: d.dayNumber,
         startTime: b.startTime,
         endTime: b.endTime,
@@ -370,7 +370,9 @@ export default function AgendaBuilderPage() {
       });
 
       if (!res.ok || !res.body) {
-        // Fallback to mock when API is unavailable
+        const errorText = res.body ? await res.text() : `HTTP ${res.status}`;
+        console.error('[AgendaGenerate] API error:', errorText);
+        addToast({ message: `AI generation failed (${res.status}) — using sample agenda`, type: 'error' });
         const variant = getMockAgenda(configuration.approachId);
         await saveAndSetAgenda(variant);
         return;
@@ -394,7 +396,8 @@ export default function AgendaBuilderPage() {
           setProgress(event);
 
           if (event.phase === 'error') {
-            // Fallback to mock on error
+            console.error('[AgendaGenerate] AI error event:', event.message);
+            addToast({ message: `AI generation failed: ${event.message ?? 'unknown error'} — using sample agenda`, type: 'error' });
             const variant = getMockAgenda(configuration.approachId);
             await saveAndSetAgenda(variant);
             return;
@@ -414,8 +417,9 @@ export default function AgendaBuilderPage() {
           }
         }
       }
-    } catch {
-      // Fallback to mock on network error
+    } catch (err) {
+      console.error('[AgendaGenerate] Network/parse error:', err);
+      addToast({ message: `AI generation failed — using sample agenda`, type: 'error' });
       const variant = getMockAgenda(configuration.approachId);
       await saveAndSetAgenda(variant);
     } finally {

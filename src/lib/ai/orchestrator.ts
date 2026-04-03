@@ -24,8 +24,20 @@ export async function* generateAgendaOrchestrated(
   // ── Phase 1: Parallel curation ───────────────
   yield { phase: 'curating', step: 'Curating restaurants & activities...' };
 
+  // Determine if external restaurant curation is needed
+  const hasExternalMeals = (() => {
+    const mealsPerDay = [
+      ...(config.schedule.includeBreakfast && !config.food.venueBreakfast ? ['breakfast'] : []),
+      'lunch',
+      ...(!config.food.venueDinner ? ['dinner'] : []),
+    ];
+    return mealsPerDay.length > 0;
+  })();
+
   const [meals, activities] = await Promise.all([
-    restaurantCurator(context, cityData.restaurants, config),
+    hasExternalMeals
+      ? restaurantCurator(context, cityData.restaurants, config)
+      : Promise.resolve({ picks: [], reasoning: 'All meals at venue — no external restaurants needed.', dietaryGaps: [] } as import('./types').CuratedMeals),
     activityPlanner(context, cityData.activities, config),
   ]);
 

@@ -124,7 +124,25 @@ async function main() {
     },
   });
 
-  console.log(`  Created ${10} users`);
+  const nina = await prisma.user.create({
+    data: {
+      id: 'user-nina',
+      name: 'Nina Vasquez',
+      email: 'nina.v@airbnb.com',
+      role: 'EMPLOYEE',
+    },
+  });
+
+  const tom = await prisma.user.create({
+    data: {
+      id: 'user-tom',
+      name: 'Tom Nakamura',
+      email: 'tom.n@airbnb.com',
+      role: 'EMPLOYEE',
+    },
+  });
+
+  console.log(`  Created ${12} users`);
 
   // ── Gatherings ─────────────────────────────────────────────────────────
   console.log('Creating gatherings...');
@@ -167,8 +185,8 @@ async function main() {
       title: 'Design Team Celebration',
       type: 'SOCIAL',
       location: 'New York, NY',
-      startDate: new Date('2026-04-20'),
-      endDate: new Date('2026-04-20'),
+      startDate: new Date('2026-03-05'),
+      endDate: new Date('2026-03-05'),
       groupSize: 12,
       status: 'COMPLETED',
       dailyStartTime: '6:00 PM',
@@ -276,7 +294,27 @@ async function main() {
     },
   });
 
-  console.log(`  Created ${invitationData.length + 1} invitations`);
+  // ── Invitations for Gathering 3 ───────────────────────────────────────
+  const g3InvitationData = [
+    { id: 'inv-g3-sarah', gatheringId: '3', employeeId: sarah.id, guestName: 'Sarah Chen', guestEmail: 'sarah.chen@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-16') },
+    { id: 'inv-g3-alex', gatheringId: '3', employeeId: alex.id, guestName: 'Alex Rivera', guestEmail: 'alex.r@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-16') },
+    { id: 'inv-g3-jordan', gatheringId: '3', employeeId: jordan.id, guestName: 'Jordan Lee', guestEmail: 'jordan.lee@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-17') },
+    { id: 'inv-g3-marcus', gatheringId: '3', employeeId: marcus.id, guestName: 'Marcus Johnson', guestEmail: 'marcus.j@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-16') },
+    { id: 'inv-g3-priya', gatheringId: '3', employeeId: priya.id, guestName: 'Priya Patel', guestEmail: 'priya.p@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-17') },
+    { id: 'inv-g3-david', gatheringId: '3', employeeId: david.id, guestName: 'David Kim', guestEmail: 'david.kim@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-16') },
+    { id: 'inv-g3-elena', gatheringId: '3', employeeId: elena.id, guestName: 'Elena Rodriguez', guestEmail: 'elena.r@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-18') },
+    { id: 'inv-g3-james', gatheringId: '3', employeeId: james.id, guestName: 'James Wright', guestEmail: 'james.w@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-16') },
+    { id: 'inv-g3-aisha', gatheringId: '3', employeeId: aisha.id, guestName: 'Aisha Thompson', guestEmail: 'aisha.t@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-17') },
+    { id: 'inv-g3-ryan', gatheringId: '3', employeeId: ryan.id, guestName: "Ryan O'Brien", guestEmail: 'ryan.ob@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-16') },
+    { id: 'inv-g3-nina', gatheringId: '3', employeeId: nina.id, guestName: 'Nina Vasquez', guestEmail: 'nina.v@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-18') },
+    { id: 'inv-g3-tom', gatheringId: '3', employeeId: tom.id, guestName: 'Tom Nakamura', guestEmail: 'tom.n@airbnb.com', status: 'ACCEPTED', sentAt: new Date('2026-02-15'), respondedAt: new Date('2026-02-16') },
+  ];
+
+  for (const inv of g3InvitationData) {
+    await prisma.invitation.create({ data: inv });
+  }
+
+  console.log(`  Created ${invitationData.length + g3InvitationData.length + 1} invitations`);
 
   // ── Registrations for accepted invitees (Gathering 1) ──────────────────
   console.log('Creating registrations...');
@@ -294,7 +332,27 @@ async function main() {
     await prisma.registration.create({ data: reg });
   }
 
-  console.log(`  Created ${registrationData.length} registrations`);
+  // ── Registrations for accepted invitees (Gathering 3) ──────────────────
+  const g3RegistrationData = [
+    { gatheringId: '3', userId: sarah.id, invitationId: 'inv-g3-sarah', dietaryRestrictions: 'Vegetarian', tshirtSize: 'M', travelOriginCity: 'San Francisco, CA' },
+    { gatheringId: '3', userId: alex.id, invitationId: 'inv-g3-alex', dietaryRestrictions: 'None', tshirtSize: 'L', travelOriginCity: 'Los Angeles, CA' },
+    { gatheringId: '3', userId: jordan.id, invitationId: 'inv-g3-jordan', dietaryRestrictions: 'Gluten-Free', tshirtSize: 'M', travelOriginCity: 'New York, NY' },
+    { gatheringId: '3', userId: marcus.id, invitationId: 'inv-g3-marcus', dietaryRestrictions: 'None', tshirtSize: 'L', travelOriginCity: 'Austin, TX' },
+    { gatheringId: '3', userId: priya.id, invitationId: 'inv-g3-priya', dietaryRestrictions: 'Vegetarian', tshirtSize: 'S', travelOriginCity: 'Boston, MA' },
+    { gatheringId: '3', userId: david.id, invitationId: 'inv-g3-david', dietaryRestrictions: 'None', tshirtSize: 'L', travelOriginCity: 'Seattle, WA' },
+    { gatheringId: '3', userId: elena.id, invitationId: 'inv-g3-elena', dietaryRestrictions: 'Dairy-Free', tshirtSize: 'M', travelOriginCity: 'Miami, FL' },
+    { gatheringId: '3', userId: james.id, invitationId: 'inv-g3-james', dietaryRestrictions: 'Nut Allergy', tshirtSize: 'XL', travelOriginCity: 'Portland, OR' },
+    { gatheringId: '3', userId: aisha.id, invitationId: 'inv-g3-aisha', dietaryRestrictions: 'Halal', tshirtSize: 'M', travelOriginCity: 'Chicago, IL' },
+    { gatheringId: '3', userId: ryan.id, invitationId: 'inv-g3-ryan', dietaryRestrictions: 'None', tshirtSize: 'L', travelOriginCity: 'Denver, CO' },
+    { gatheringId: '3', userId: nina.id, invitationId: 'inv-g3-nina', dietaryRestrictions: 'Vegan', tshirtSize: 'S', travelOriginCity: 'San Diego, CA' },
+    { gatheringId: '3', userId: tom.id, invitationId: 'inv-g3-tom', dietaryRestrictions: 'None', tshirtSize: 'M', travelOriginCity: 'Washington, DC' },
+  ];
+
+  for (const reg of g3RegistrationData) {
+    await prisma.registration.create({ data: reg });
+  }
+
+  console.log(`  Created ${registrationData.length + g3RegistrationData.length} registrations`);
 
   // ── Notifications ──────────────────────────────────────────────────────
   console.log('Creating notifications...');

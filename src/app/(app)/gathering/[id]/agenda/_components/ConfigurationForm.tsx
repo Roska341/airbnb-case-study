@@ -286,6 +286,68 @@ export function ConfigurationForm({
                 ))}
               </div>
             </div>
+
+            {/* Venue/Hotel Meals */}
+            <div>
+              <label className="text-xs font-bold text-foggy uppercase tracking-wider block mb-3">
+                Meals at Venue / Hotel
+              </label>
+              <div className="space-y-3">
+                <div className={`flex items-center justify-between p-3 bg-bg-gray rounded-btn border border-light-gray ${!config.schedule.includeBreakfast ? 'opacity-50' : ''}`}>
+                  <div>
+                    <p className="font-bold text-kazan text-sm">Breakfast at venue</p>
+                    <p className="text-foggy text-xs">
+                      {config.schedule.includeBreakfast
+                        ? 'All breakfasts will be at the hotel or venue — no external restaurant needed'
+                        : 'Enable "Include breakfast" in Logistics to use this option'}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    disabled={!config.schedule.includeBreakfast}
+                    onClick={() =>
+                      setConfig((prev) => ({
+                        ...prev,
+                        food: { ...prev.food, venueBreakfast: !prev.food.venueBreakfast },
+                      }))
+                    }
+                    className={`relative w-11 h-6 rounded-pill transition-colors shrink-0 ${
+                      config.food.venueBreakfast && config.schedule.includeBreakfast ? 'bg-kazan' : 'bg-light-gray'
+                    } ${!config.schedule.includeBreakfast ? 'cursor-not-allowed' : ''}`}
+                  >
+                    <div
+                      className={`absolute top-0.5 w-5 h-5 bg-white rounded-pill shadow transition-transform ${
+                        config.food.venueBreakfast && config.schedule.includeBreakfast ? 'translate-x-5' : 'translate-x-0.5'
+                      }`}
+                    />
+                  </button>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-bg-gray rounded-btn border border-light-gray">
+                  <div>
+                    <p className="font-bold text-kazan text-sm">Dinner at venue</p>
+                    <p className="text-foggy text-xs">All dinners will be at the hotel or venue — no external restaurant needed</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setConfig((prev) => ({
+                        ...prev,
+                        food: { ...prev.food, venueDinner: !prev.food.venueDinner },
+                      }))
+                    }
+                    className={`relative w-11 h-6 rounded-pill transition-colors shrink-0 ${
+                      config.food.venueDinner ? 'bg-kazan' : 'bg-light-gray'
+                    }`}
+                  >
+                    <div
+                      className={`absolute top-0.5 w-5 h-5 bg-white rounded-pill shadow transition-transform ${
+                        config.food.venueDinner ? 'translate-x-5' : 'translate-x-0.5'
+                      }`}
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </motion.div>
@@ -471,6 +533,11 @@ export function ConfigurationForm({
                         schedule: {
                           ...prev.schedule,
                           includeBreakfast: !prev.schedule.includeBreakfast,
+                        },
+                        // Reset venue breakfast when breakfast is disabled
+                        food: {
+                          ...prev.food,
+                          venueBreakfast: prev.schedule.includeBreakfast ? false : prev.food.venueBreakfast,
                         },
                       }))
                     }

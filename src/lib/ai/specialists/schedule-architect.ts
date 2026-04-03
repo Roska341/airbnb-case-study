@@ -1,4 +1,4 @@
-import { anthropic } from '../client';
+import { anthropic, sanitizePromptInput } from '../client';
 import { SCHEDULE_ARCHITECT_PROMPT, specialistTools } from '../prompts';
 import type { Message } from '@anthropic-ai/sdk/resources/messages';
 import type {
@@ -13,7 +13,7 @@ import type { AgendaConfiguration } from '../agenda-config';
 import { getApproachById } from '../agenda-config';
 
 const MODEL = 'claude-sonnet-4-20250514';
-const MAX_TOKENS = 4096;
+const MAX_TOKENS = 16384;
 
 interface RawBlock {
   start_time: string;
@@ -44,6 +44,90 @@ function extractToolInput<T>(response: Message, toolName: string): T {
     throw new Error(`AI response did not contain expected tool call "${toolName}".`);
   }
   return toolBlock.input as T;
+}
+
+// Icebreaker titles/descriptions that involve personal disclosure — banned
+const BANNED_ICEBREAKER_PATTERNS = [
+  /\btwo truths\b/i,
+  /\bnever have i ever\b/i,
+  /\bmost embarrassing\b/i,
+  /\btruth or dare\b/i,
+  /\bhot seat\b/i,
+  /\bsecret talent\b/i,
+  /\bguilty pleasure/i,
+  /\bmap of me\b/i,
+];
+
+const SAFE_ICEBREAKER_REPLACEMENTS = [
+  { title: 'Team Trivia Challenge', description: 'Teams compete in rounds of company and industry trivia with quick-fire buzzer rounds.' },
+  { title: 'Collaborative Word Association', description: 'Groups build word chains together, competing to create the longest unbroken association sequence.' },
+  { title: 'Marshmallow Challenge', description: 'Teams race to build the tallest freestanding structure using spaghetti, tape, and a marshmallow.' },
+  { title: 'Reverse Charades', description: 'The whole team acts out clues while one person guesses — a high-energy twist on classic charades.' },
+];
+
+function sanitizeIcebreakers(raw: RawAgenda): RawAgenda {
+  let replacementIdx = 0;
+  return {
+    ...raw,
+    days: raw.days.map((day) => ({
+      ...day,
+      blocks: day.blocks.map((block) => {
+        // Check all block types — AI could mislabel a banned icebreaker as 'activity'
+        const text = `${block.title} ${block.description ?? ''}`;
+        const isBanned = BANNED_ICEBREAKER_PATTERNS.some((p) => p.test(text));
+        if (!isBanned) return block;
+        const replacement = SAFE_ICEBREAKER_REPLACEMENTS[replacementIdx % SAFE_ICEBREAKER_REPLACEMENTS.length];
+        replacementIdx++;
+        return { ...block, title: replacement.title, description: replacement.description };
+      }),
+    })),
+  };
+}
+
+// Parse "9:00 AM" → total minutes from midnight
+function parseTimeToMinutes(t: string): number {
+  const [hStr, rest] = t.split(':');
+  const h = Number(hStr);
+  const m = Number(rest?.replace(/\s*(AM|PM)/i, '') ?? 0);
+  let hours = h;
+  if (t.includes('AM') && h === 12) hours = 0;
+  else if (t.includes('PM') && h !== 12) hours = h + 12;
+  return hours * 60 + m;
+}
+
+// Format total minutes back to "H:MM AM/PM"
+function minutesToTime(mins: number): string {
+  const totalMins = ((mins % 1440) + 1440) % 1440; // wrap to 0-1439
+  let h = Math.floor(totalMins / 60);
+  const m = totalMins % 60;
+  const period = h >= 12 ? 'PM' : 'AM';
+  if (h === 0) h = 12;
+  else if (h > 12) h -= 12;
+  return `${h}:${m.toString().padStart(2, '0')} ${period}`;
+}
+
+function enforceStartTimes(raw: RawAgenda, startTimePreference: string): RawAgenda {
+  const targetMinutes = parseTimeToMinutes(startTimePreference);
+
+  return {
+    ...raw,
+    days: raw.days.map((day) => {
+      if (!day.blocks.length) return day;
+      const firstStart = parseTimeToMinutes(day.blocks[0].start_time);
+      if (firstStart === targetMinutes) return day;
+
+      // Shift ALL blocks by the difference so durations and gaps are preserved
+      const delta = targetMinutes - firstStart;
+      return {
+        ...day,
+        blocks: day.blocks.map((block) => ({
+          ...block,
+          start_time: minutesToTime(parseTimeToMinutes(block.start_time) + delta),
+          end_time: minutesToTime(parseTimeToMinutes(block.end_time) + delta),
+        })),
+      };
+    }),
+  };
 }
 
 function mapToAgendaVariant(raw: RawAgenda, color: string): AgendaVariant {
@@ -91,24 +175,44 @@ export async function scheduleArchitect(
 
   let refinementSection = '';
   if (options?.feedback && options.feedback.length > 0) {
-    refinementSection = `\n\nREFINEMENT REQUIRED — The following issues were found in your previous schedule. Fix ONLY these issues. Keep everything else unchanged:
+    // Serialize the previous agenda so the model knows what to keep/change
+    const previousSummary = options.previous
+      ? options.previous.days.map((day) => {
+          const blocks = (day.blocks ?? []).map((b) => {
+            let line = `  ${b.startTime}-${b.endTime}: ${b.title} [${b.type}]`;
+            if (b.restaurant) line += ` (restaurant: ${b.restaurant.name})`;
+            if (b.activity) line += ` (activity: ${b.activity.name})`;
+            return line;
+          }).join('\n');
+          return `Day ${day.dayNumber}:\n${blocks}`;
+        }).join('\n')
+      : '';
+
+    refinementSection = `\n\nREFINEMENT REQUIRED — Fix ONLY the listed issues. Keep everything else unchanged.
+${previousSummary ? `\nPREVIOUS SCHEDULE:\n${previousSummary}\n` : ''}
+Issues to fix:
 ${options.feedback.map((f) => `- ${f}`).join('\n')}`;
   }
 
-  const venueInfo = context.venueAddress
-    ? `Base venue: ${context.venueAddress} — work sessions, icebreakers, and free time happen HERE. Only restaurants and off-site activities require travel.`
-    : config.proximity.accommodationAddress
-      ? `Base venue (hotel): ${config.proximity.accommodationAddress} — work sessions, icebreakers, and free time happen HERE or nearby. Only restaurants and off-site activities require travel.`
-      : `Base venue: the team's hotel/event space in ${context.location}. Work sessions, icebreakers, and free time happen at the base venue.`;
+  const safeVenueAddress = context.venueAddress ? sanitizePromptInput(context.venueAddress, 200) : undefined;
+  const safeAccommodationAddress = config.proximity.accommodationAddress ? sanitizePromptInput(config.proximity.accommodationAddress, 200) : undefined;
+
+  const venueInfo = safeVenueAddress
+    ? `Base venue: ${safeVenueAddress}`
+    : safeAccommodationAddress
+      ? `Base venue (hotel): ${safeAccommodationAddress}`
+      : `Base venue: hotel/event space in ${context.location}`;
 
   // Calculate expected work/social hours
   const scheduledHoursPerDay = (() => {
     const start = config.schedule.startTimePreference;
     const end = config.schedule.endTimePreference;
-    // Rough estimate — parse "9:00 AM" → 9, "9:00 PM" → 21
+    // Parse "9:00 AM" → 9, "9:00 PM" → 21, "12:00 AM" → 0, "12:00 PM" → 12
     const parseHour = (t: string) => {
       const [h] = t.split(':').map(Number);
-      return t.includes('PM') && h !== 12 ? h + 12 : h;
+      if (t.includes('AM') && h === 12) return 0;
+      if (t.includes('PM') && h !== 12) return h + 12;
+      return h;
     };
     return parseHour(end) - parseHour(start);
   })();
@@ -117,38 +221,34 @@ ${options.feedback.map((f) => `- ${f}`).join('\n')}`;
   const expectedWorkHours = Math.round((workPct / 100) * scheduledHoursPerDay);
   const expectedSocialHours = scheduledHoursPerDay - expectedWorkHours;
 
-  const userPrompt = `Build a ${context.duration}-day agenda for a ${context.type} gathering.
+  const safePurpose = context.purpose ? sanitizePromptInput(context.purpose) : undefined;
 
-Group size: ${context.groupSize} people
-Location: ${context.location}
-${context.purpose ? `Purpose: ${context.purpose}` : ''}
-${context.dietarySummary ? `Dietary needs: ${context.dietarySummary}` : ''}
+  // For extreme ratios, add a hard constraint the model can't miss
+  const ratioEmphasis = workPct <= 30
+    ? `HARD CONSTRAINT: This is a social-first gathering. No more than ${expectedWorkHours}h of work_session blocks per full day. Fill the rest with icebreakers, activities, meals, and free time. Do NOT default to work sessions to fill gaps.`
+    : workPct >= 70
+      ? `HARD CONSTRAINT: This is a work-first gathering. At least ${expectedWorkHours}h of work_session blocks per full day. Minimize social blocks.`
+      : '';
 
+  const userPrompt = `${context.duration}-day ${context.type} gathering, ${context.groupSize} people in ${context.location}.
+${safePurpose ? `Purpose: ${safePurpose}` : ''}
 ${venueInfo}
 
-Approach: "${approach.name}" (${approach.workSocialRatio} work/social ratio)
+Approach: "${approach.name}" (${approach.workSocialRatio} work/social)
 ${approach.aiInstruction}
+Ratio target: ~${expectedWorkHours}h work_session, ~${expectedSocialHours}h social per full day.${ratioEmphasis}
 
-RATIO TARGET: ~${expectedWorkHours} hours of work_session blocks and ~${expectedSocialHours} hours of social blocks (icebreaker + activity + meal + free_time) per full day. This ratio is critical — verify it before finalizing.
+Schedule: ${config.schedule.startTimePreference}–${config.schedule.endTimePreference}. EVERY day including Day 1 MUST start at ${config.schedule.startTimePreference}. Do NOT treat Day 1 as an arrival day. ${config.schedule.includeBreakfast ? 'Include breakfast.' : 'No breakfast.'}
+${config.food.venueBreakfast ? 'Breakfasts at venue (meal block, no restaurant object).' : ''}
+${config.food.venueDinner ? 'Dinners at venue (meal block, no restaurant object).' : ''}
 
-Schedule: Start at ${config.schedule.startTimePreference}, end by ${config.schedule.endTimePreference}. ${config.schedule.includeBreakfast ? 'Include breakfast.' : 'No breakfast.'}
+RESTAURANTS:
+${mealsSection || 'None — all meals at venue.'}
 
-PRE-SELECTED RESTAURANTS (place in their assigned meal slots):
-${mealsSection}
-
-PRE-SELECTED ACTIVITIES (place at suggested times):
+ACTIVITIES:
 ${activitiesSection}
 
-Instructions:
-- Place each restaurant in its assigned meal slot with the restaurant object data
-- Place activities at their suggested times with the activity object data
-- Fill remaining time with work_session, icebreaker, free_time, and travel blocks
-- Work sessions and icebreakers happen at the BASE VENUE — no travel needed between them
-- Add travel blocks (15 min) ONLY when going to/from an off-site restaurant or activity
-- Add 10-15 min cooldown buffers after returning from off-site activities before the next session
-- Day 1 starts in the afternoon (arrival day) unless duration is 1 day
-- Ensure no time overlaps and no back-to-back blocks at different locations
-- Set variant_name to "${approach.name}"
+variant_name: "${approach.name}"
 ${refinementSection}`;
 
   const tool = specialistTools.build_agenda;
@@ -163,6 +263,35 @@ ${refinementSection}`;
     messages: [{ role: 'user', content: userPrompt }],
   });
 
-  const raw = extractToolInput<RawAgenda>(response, 'build_agenda');
+  if (response.stop_reason === 'max_tokens') {
+    throw new Error(
+      'AI response was truncated (hit max_tokens). The agenda may be too large for a single response. ' +
+      `Try reducing the gathering duration or simplifying the configuration.`
+    );
+  }
+
+  let raw = extractToolInput<RawAgenda>(response, 'build_agenda');
+
+  if (!raw.days || !Array.isArray(raw.days)) {
+    throw new Error(
+      `AI returned invalid agenda structure: "days" is ${typeof raw.days}. ` +
+      `stop_reason: ${response.stop_reason}`
+    );
+  }
+
+  // Validate each day has a blocks array
+  for (const day of raw.days) {
+    if (!day.blocks || !Array.isArray(day.blocks)) {
+      throw new Error(
+        `AI returned a day (day_number: ${day.day_number}) without a valid "blocks" array. ` +
+        `Got: ${typeof day.blocks}. stop_reason: ${response.stop_reason}`
+      );
+    }
+  }
+
+  // Post-processing: enforce safe icebreakers and correct start times
+  raw = sanitizeIcebreakers(raw);
+  raw = enforceStartTimes(raw, config.schedule.startTimePreference);
+
   return mapToAgendaVariant(raw, approach.color);
 }

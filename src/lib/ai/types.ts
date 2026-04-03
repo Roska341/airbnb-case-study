@@ -10,11 +10,12 @@ export interface GatheringContext {
   type: string;            // TEAM_BONDING, STRATEGIC_ALIGNMENT, etc.
   purpose?: string;
   teamContext?: string;
-  groupSize: number;
+  groupSize: number;       // expected/planned group size (set by organizer)
   duration: number;        // days
   location: string;
-  dietarySummary?: string; // "3 vegetarian, 2 gluten-free" (anonymized)
+  dietarySummary?: string; // "3 vegetarian, 2 gluten-free" (anonymized) — only present if registrants exist
   venueAddress?: string;   // base venue (hotel/event space) where most sessions happen
+  registrantCount?: number; // how many people have registered so far (0 = pre-registration planning)
 }
 
 export interface Recommendation {

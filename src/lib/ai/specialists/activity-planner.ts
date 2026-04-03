@@ -1,4 +1,4 @@
-import { anthropic } from '../client';
+import { anthropic, sanitizePromptInput } from '../client';
 import { ACTIVITY_PLANNER_PROMPT, specialistTools } from '../prompts';
 import type { Message } from '@anthropic-ai/sdk/resources/messages';
 import type { GatheringContext, CuratedActivities } from '../types';
@@ -52,9 +52,9 @@ export async function activityPlanner(
 
   const userPrompt = `Select activities for a ${context.duration}-day ${context.type} gathering.
 
-Group size: ${context.groupSize} people
+Expected group size: ${context.groupSize} people
 Location: ${context.location}
-${context.purpose ? `Purpose: ${context.purpose}` : ''}
+${context.purpose ? `Purpose: ${sanitizePromptInput(context.purpose)}` : ''}
 
 Approach: "${approach.name}" (${approach.workSocialRatio} work/social ratio)
 ${approach.aiInstruction}
@@ -80,5 +80,15 @@ Select 2-4 activities for a ${context.duration}-day gathering. Balance high and 
     messages: [{ role: 'user', content: userPrompt }],
   });
 
-  return extractToolInput<CuratedActivities>(response, 'curate_activities');
+  if (response.stop_reason === 'max_tokens') {
+    throw new Error('Activity planning response was truncated (hit max_tokens).');
+  }
+
+  const result = extractToolInput<CuratedActivities>(response, 'curate_activities');
+
+  if (!result.picks || !Array.isArray(result.picks)) {
+    throw new Error(`AI returned invalid activity curation: "picks" is ${typeof result.picks}.`);
+  }
+
+  return result;
 }

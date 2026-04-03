@@ -51,6 +51,8 @@ export interface AgendaConfiguration {
     cuisinePreferences: CuisinePreference[];
     priceRange: PriceRange[];
     diningStyle: DiningStyle[];
+    venueBreakfast: boolean;
+    venueDinner: boolean;
   };
 
   activities: {
@@ -148,6 +150,8 @@ interface GatheringTypeDefaults {
     cuisinePreferences: CuisinePreference[];
     priceRange: PriceRange[];
     diningStyle: DiningStyle[];
+    venueBreakfast: boolean;
+    venueDinner: boolean;
   };
   activities: {
     typePreferences: ActivityType[];
@@ -167,6 +171,8 @@ const GATHERING_TYPE_DEFAULTS: Record<GatheringType, GatheringTypeDefaults> = {
       cuisinePreferences: ['local_specialty'],
       priceRange: ['$$', '$$$'],
       diningStyle: ['group_friendly', 'casual'],
+      venueBreakfast: false,
+      venueDinner: false,
     },
     activities: {
       typePreferences: ['outdoor', 'creative'],
@@ -184,6 +190,8 @@ const GATHERING_TYPE_DEFAULTS: Record<GatheringType, GatheringTypeDefaults> = {
       cuisinePreferences: ['no_preference'],
       priceRange: ['$$$', '$$$$'],
       diningStyle: ['group_friendly', 'fine_dining'],
+      venueBreakfast: false,
+      venueDinner: false,
     },
     activities: {
       typePreferences: ['indoor'],
@@ -201,6 +209,8 @@ const GATHERING_TYPE_DEFAULTS: Record<GatheringType, GatheringTypeDefaults> = {
       cuisinePreferences: ['no_preference'],
       priceRange: ['$$', '$$$'],
       diningStyle: ['casual', 'group_friendly'],
+      venueBreakfast: false,
+      venueDinner: false,
     },
     activities: {
       typePreferences: ['indoor', 'creative'],
@@ -218,6 +228,8 @@ const GATHERING_TYPE_DEFAULTS: Record<GatheringType, GatheringTypeDefaults> = {
       cuisinePreferences: ['local_specialty'],
       priceRange: ['$', '$$', '$$$'],
       diningStyle: ['casual'],
+      venueBreakfast: false,
+      venueDinner: false,
     },
     activities: {
       typePreferences: ['outdoor', 'cultural', 'creative'],
@@ -235,6 +247,8 @@ const GATHERING_TYPE_DEFAULTS: Record<GatheringType, GatheringTypeDefaults> = {
       cuisinePreferences: ['local_specialty'],
       priceRange: ['$$', '$$$'],
       diningStyle: ['group_friendly', 'casual'],
+      venueBreakfast: false,
+      venueDinner: false,
     },
     activities: {
       typePreferences: ['outdoor', 'indoor', 'creative'],
@@ -252,6 +266,8 @@ const GATHERING_TYPE_DEFAULTS: Record<GatheringType, GatheringTypeDefaults> = {
       cuisinePreferences: ['no_preference'],
       priceRange: ['$$$', '$$$$'],
       diningStyle: ['group_friendly', 'fine_dining'],
+      venueBreakfast: false,
+      venueDinner: false,
     },
     activities: {
       typePreferences: ['outdoor', 'indoor', 'cultural', 'creative'],
@@ -269,6 +285,8 @@ const GATHERING_TYPE_DEFAULTS: Record<GatheringType, GatheringTypeDefaults> = {
       cuisinePreferences: ['no_preference'],
       priceRange: ['$$', '$$$'],
       diningStyle: [],
+      venueBreakfast: false,
+      venueDinner: false,
     },
     activities: {
       typePreferences: ['outdoor', 'indoor', 'cultural', 'creative', 'wellness'],
